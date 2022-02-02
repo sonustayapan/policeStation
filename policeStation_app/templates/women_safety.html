@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block css %}
+<style>
+    .box {
+        width: 1100px;
+        margin: 20px auto 0px auto;
+
+    }
+
+    .box h1,
+    p {
+        margin: 10;
+        padding: 10px 10px;
+
+    }
+
+    .box h1 {
+        font-weight: 500;
+        position: relative;
+        display: table;
+        margin: 0 auto 15px;
+        padding: 6px 15px;
+        font-size: 155%;
+        border-top: 4px double #5a71d6;
+        border-bottom: 4px double #ff7a7a;
+        text-transform: uppercase;
+        font-family: 'David Libre', serif;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+
+{% load static %}
+
+<section class="contact-form" style="width: 1200px; margin: auto;">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="box">
+                <h1>Women Safety</h1>
+                <p>1. Be positive, confident and stay alert.<br>
+                    2. Choose safe/well recognised place/mall for shopping. Avoid lonely places.<br>
+
+                    3. Keep distance with unknown people. Don’t try to make them friends. They can be criminals or
+                    kidnappers.<br>
+
+                    4. Don't go to unknown places or stay there during night.<br>
+
+                    5. Always select the reputed beauty parlor. Make sure that it is safe and secure with your
+                    privacy.<br>
+
+                    6. Always carry your mobile phone, so that you can call police or family member when you are in
+                    trouble.<br>
+
+                    7. Do not share plans for your journey with your friends.<br>
+
+                    8. Choose a safe vehicle for journey.<br>
+
+                    9. Don't open your identity on phone when your are travlling.<br>
+
+                    10. Select a reputed hotel for staying. Don't go for hotels at deserted area.<br>
+
+                    11. Investigate the room before use.<br>
+
+                    12. Always close the door. Use safety latch also.<br>
+
+                    13. Use peephole before open the door. Don’t allow to enter unknown person.<br>
+                    14. Keep an eye on your surroundings.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block css %}
+<style>
+    .box {
+        width: 1100px;
+        margin: 20px auto 0px auto;
+
+    }
+
+    .box h1,
+    p {
+        margin: 10;
+        padding: 10px 10px;
+
+    }
+
+    .box h1 {
+        font-weight: 500;
+        position: relative;
+        display: table;
+        margin: 0 auto 15px;
+        padding: 6px 15px;
+        font-size: 155%;
+        border-top: 4px double #5a71d6;
+        border-bottom: 4px double #ff7a7a;
+        text-transform: uppercase;
+        font-family: 'David Libre', serif;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+
+{% load static %}
+
+<section class="contact-form" style="width: 1200px; margin: auto;">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="box">
+                <h1>Road Safety</h1>
+                <p>When somebody gets ready to drive for the very first time on road, one needs to take many lessons
+                    about the
+                    road. The most common things the student driver will need are license, enrollment in a driving
+                    school, road
+                    familiarization, traffic rule tests and road ethics. Out of all this one fundamental element of
+                    driving
+                    arises which should always be taken seriously is the comprehensive knowledge on road or traffic
+                    signs. Every
+                    good driver must have the good knowledge of these signs.<br>
+
+                    Every person, he may be a passenger, driver, pedestrian would have noticed along the roadside
+                    various sign
+                    boards that serve important purposes. These important road paraphernalia helps us as route guides,
+                    warning
+                    and traffic regulator. As control devices for traffic, signs need full attention, respect and
+                    adequate
+                    driver's response.<br>
+
+                    Road signs are placed beside or above the highways or streets. If the positioning of the signs is
+                    not
+                    supported by any visual considerations or expert reasons, these may become destructive rather than
+                    effective
+                    means of guiding the motorists. Traffic signs or road signs are signs erected at the side of road to
+                    provide
+                    information to road users. Pictorial signs are used as symbols in place of words and are usually a
+                    result of
+                    international standards.<br>
+
+                    We have consolidated the all Road signs - Mandatory; Cautionary and Informatory and have given brief
+                    about
+                    each sign. This will be a very useful guide for learners and other road users. It is expected that
+                    after
+                    going through this subject, one would obviously be more road friendly and wise citizen.<br>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

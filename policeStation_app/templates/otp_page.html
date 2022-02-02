@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-8 offset-md-2">
+
+						<div class="account-content">
+							<div class="row align-items-center justify-content-center">
+								<div class="col-md-7 col-lg-6 login-left">
+									<img src="{% static 'img/nalsa_image.png' %}" class="img-fluid" alt="Login Banner">
+								</div>
+								<div class="col-md-12 col-lg-6 login-right">
+									<div class="login-header">
+										<h3>Varifiy OTP</h3>
+										<p class="small text-muted">Enter your One Time Password</p>
+									</div>
+
+									<form action="/verify_otp/{{verify_for}}/"  method="post" role="form" novalidate="false">
+										{% csrf_token %}
+										<div class="form-group form-focus">
+											<input type="password" name="otp" id="otp" class="form-control input-lg"
+											placeholder="Enter OTP" required>	
+											<div class="invalid-feedback">
+												Please enter OTP.
+											</div>
+											{% if verify_for == 'rec' %}
+											<div class="form-group mb-5">
+												<input type="password" name="password" id="password"
+													class="form-control input-lg" placeholder="Enter new password" required>
+												<div class="invalid-feedback">
+													Please enter password.
+												</div>
+											</div>
+											{% endif %}
+										</div>
+										
+										<button class="btn btn-primary w-100 btn-lg login-btn" type="submit">Varify and Continue</button>
+									</form>
+									
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+{% endblock %}

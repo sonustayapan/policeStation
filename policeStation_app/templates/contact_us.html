@@ -1,0 +1,539 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+<style type="text/css">
+	.tptop {
+		background-image: url('Images/Top_Bg.png');
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 925px;
+	}
+
+	.tpbottom {
+		background-image: url('Images/Bottom_Bg.png');
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 925px;
+	}
+
+	.cpHeader {
+		color: white;
+		background-color: #719DDB;
+		font: bold 11px auto "Trebuchet MS", Verdana;
+		font-size: 12px;
+		cursor: pointer;
+		width: 980px;
+		height: 18px;
+		padding: 4px;
+	}
+
+	.cpBody {
+		background-color: #DCE4F9;
+		font: normal 11px auto Verdana, Arial;
+		border: 1px gray;
+		width: 980px;
+		padding: 4px;
+		padding-top: 7px;
+	}
+
+	.pnlhd {
+		color: white;
+		background-color: #719DDB;
+		font: bold 11px auto "Trebuchet MS", Verdana;
+		font-size: 12px;
+		cursor: pointer;
+		width: 500px;
+		height: 25px;
+		padding-left: 0px;
+		text-align: center;
+	}
+
+	.popupMenu {
+		position: absolute;
+		visibility: hidden;
+		background-color: #F5F7F8;
+		opacity: .9;
+		filter: alpha(opacity=90);
+	}
+
+	.alignRight {
+		margin-right: 30px;
+		float: right;
+	}
+
+	.clsMargin {
+		margin-right: 10px;
+	}
+</style>
+<style type="text/css">
+	.WatermarkColor {
+		color: #666666;
+		font-style: italic;
+	}
+
+	.maindefaultdiv {
+		padding-left: 2%;
+		padding-right: 2%;
+		width: 99%;
+	}
+
+	.auto-style2 {
+		width: 10%;
+	}
+</style>
+
+{% block content %}
+<section class="contact-form" style="width: 1200px; margin: auto;">
+
+<title>Importatnt Phone Number</title>
+<link rel="Shortcut Icon" href="../Images/wbp.ico" />
+
+<div id="ctl00_ContentPlaceHolder1_updt1">
+
+	<table width="100%">
+			<tr>
+				<td colspan="3" style="padding-left: 8px;">
+					<span id="ctl00_ContentPlaceHolder1_lbl_header"
+						style="color:#0099CC;font-family:Open Sans Condensed;font-size:20pt;">Important Telephone
+						Numbers</span>
+				</td>
+			</tr>
+		</table>
+		<fieldset style="border: solid 1px #336699;width:93%;margin-top:10px;">
+			<div style="float:left;width:96%;">
+				<table width="97%" cellpadding="0" cellspacing="0" style="margin-top:10px;margin-bottom:10px;">
+					<tr>
+						<td width="10%">
+							<span id="ctl00_ContentPlaceHolder1_lblMaster"
+								style="font-family:Georgia;font-size:14px;font-weight:bold;"> Unit Type :</span>
+						</td>
+						<td valign="middle"
+							style="font-family: Georgia; font-size: 16px; color: Black; line-height: 24px;" width="20%">
+							<select name="ctl00$ContentPlaceHolder1$ddl_Master">
+								
+								<option selected="selected" value="-1">-- Select Type --</option>
+								<option value="0">District</option>
+								<option value="1">Commissionerate</option>
+								<option value="2">GRP</option>
+								<option value="3">Others</option>
+
+							</select>
+						</td>
+						<td width="20%">
+							<span id="ctl00_ContentPlaceHolder1_Label2"
+								style="font-family:Georgia;font-size:14px;font-weight:bold;"> Office/ Establishment
+								:</span>
+						</td>
+						<td valign="middle"
+							style="font-family: Georgia; font-size: 16px; color: Black; line-height: 24px;width:20%">
+							<select name="ctl00$ContentPlaceHolder1$ddl_Type">
+								<option selected="selected" value="--Select--">--Select--</option>
+
+							</select>
+						</td>
+						<td width="13%">
+
+							&nbsp;&nbsp;<span id="ctl00_ContentPlaceHolder1_Label6"
+								style="font-family:Georgia;font-size:14px;font-weight:bold;">Police Station :</span>
+						</td>
+						<td valign="middle"
+							style="font-family: Georgia; font-size: 16px; color: Black; line-height: 24px;width:20%">
+							<select name="ctl00$ContentPlaceHolder1$ddlPS">
+								<option selected="selected" value="--Select--">--Select--</option>
+								<option value=" Medinipur Women PS"> Medinipur Women PS</option>
+								<option value="Adra PS">Adra PS</option>
+								<option value="Airport PS">Airport PS</option>
+								<option value="Women PS Kharagpur">Women PS Kharagpur</option>
+								<option value="Women PS Kotwali">Women PS Kotwali</option>
+								<option value="Women PS, CBR">Women PS, CBR</option>
+
+							</select>
+						</td>
+
+					</tr>
+
+				</table><div style="margin-top:30px;">
+		
+			</div>
+			<div style="float:right;vertical-align:middle;margin-top:10px;">
+				<input type="image" name="ctl00$ContentPlaceHolder1$imgRefresh"
+					id="ctl00_ContentPlaceHolder1_imgRefresh" title="Refresh" src="{% static 'img/refreshtel.png' %}"
+					alt="Refresh" style="height:25px;width:30px;border-width:0px;" />
+			</div>
+		</fieldset>
+
+		<table width="95%" cellpadding="0" cellspacing="0" style="margin-top:15px;">
+			<tr>
+				<td colspan="6"
+					style="font-family: Georgia; font-size: 16px; color: Black; line-height: 24px; width: 100%;"
+					valign="top">
+					<span id="ctl00_ContentPlaceHolder1_lbl_count"
+						style="font: georgia; color: Maroon; font-size: medium;">Total No. of Record(s) = 1408</span>
+					<div>
+						<table cellspacing="0" rules="all" class="PubList" border="1"
+							id="ctl00_ContentPlaceHolder1_grid_contactus"
+							style="font-family:georgia;font-size:11pt;width:99.5%;border-collapse:collapse;">
+							<tr align="center" style="color:White;background-color:#3D8A9B;border-color:#D6D6D6;">
+								<th scope="col">Name of Office/Establishment</th>
+								<th scope="col">Telephone Number</th>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl02_Label1">SP
+											Alipurduar</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl02_Label3"
+											style="font-family:Times New Roman;">03564 - 255051, 256244&#40F&#41</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl03_Label1">Addl. SP,
+											Alipurduar</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl03_Label3"
+											style="font-family:Times New Roman;">03564 - 256244</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl04_Label1">S.D.P.O.
+											Alipurduar</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl04_Label3"
+											style="font-family:Times New Roman;">03564 - 255051, 255051&#40F&#41</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl05_Label1">C.I.
+											Kalchini</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl05_Label3"
+											style="font-family:Times New Roman;">03564 - 255985</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl06_Label1">C.I.
+											Birpara</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl06_Label3"
+											style="font-family:Times New Roman;">03563 - 266092</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl07_Label1">Alipurduar
+											PS</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl07_Label3"
+											style="font-family:Times New Roman;">03564 - 255100</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl08_Label1">OC Control
+											Room, Alipurduar</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl08_Label3"
+											style="font-family:Times New Roman;">03564-255005</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl09_Label1">Falakata
+											PS</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl09_Label3"
+											style="font-family:Times New Roman;">03563 - 260242</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl10_Label1">Madarihat
+											PS</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl10_Label3"
+											style="font-family:Times New Roman;">03563 - 262223</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl11_Label1">Jaigaon
+											PS</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl11_Label3"
+											style="font-family:Times New Roman;">03566 - 263200</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl12_Label1">Hasimara OP (
+											Under Jaigaon PS )</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl12_Label3"
+											style="font-family:Times New Roman;">03566 - 255028</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl13_Label1">Kalachini
+											PS</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl13_Label3"
+											style="font-family:Times New Roman;">03566 - 240100</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl14_Label1">Samuktala
+											PS</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl14_Label3"
+											style="font-family:Times New Roman;">03564 - 240300</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl15_Label1">Kumargram
+											PS</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl15_Label3"
+											style="font-family:Times New Roman;">03564 - 252224</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl16_Label1">Kamakhyaguri OP
+											(Under Kumargram PS)</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl16_Label3"
+											style="font-family:Times New Roman;">03564 - 260730</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl17_Label1">Barobisa OP
+											(Under Kumargram PS)</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl17_Label3"
+											style="font-family:Times New Roman;">03564 - 263344</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl18_Label1">Alipurduar
+											Women PS</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl18_Label3"
+											style="font-family:Times New Roman;">8001373836</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl19_Label1">DIO 1,
+											Alipurduar</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl19_Label3"
+											style="font-family:Times New Roman;">03564-255984</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:White;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl20_Label1"> IRP,
+											Alipurduar</span>
+									</div>
+								</td>
+								<td align="center" valign="middle" style="width:35%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl20_Label3"
+											style="font-family:Times New Roman;">03564-255097</span>
+									</div>
+								</td>
+							</tr>
+							<tr style="background-color:#CDE2F1;border-width:0px;border-style:None;">
+								<td valign="middle" style="width:30%;">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl21_Label1">DCRB,
+											Alipurduar</span>
+									</div>
+								</td>
+								<td  style="width:35%; ">
+									<div style="padding-left: 2px;">
+										<span id="ctl00_ContentPlaceHolder1_grid_contactus_ctl21_Label3"
+											style="font-family:Times New Roman;">03564-255051</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<table border="0">
+										<tr>
+											<td><span>1</span></td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$2&#39;)">2</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$3&#39;)">3</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$4&#39;)">4</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$5&#39;)">5</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$6&#39;)">6</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$7&#39;)">7</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$8&#39;)">8</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$9&#39;)">9</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$10&#39;)">10</a>
+											</td>
+											<td><a
+													href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$grid_contactus&#39;,&#39;Page$11&#39;)">...</a>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+
+</div>
+</section>
+
+
+
+<section class="contact-map d-flex">
+	<iframe
+		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955644.231117644!2d85.00565472566669!3d26.017524148322284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f29937c52d4f05%3A0x831a0e05f607b270!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1639114665961!5m2!1sen!2sin"
+		width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+{% endblock %}
+
+
+<script type="text/javascript" src="../CSS/jquery.js"></script>
+
+<script type="text/javascript">
+
+
+	function textCounter(field, countfield, maxlimit) {
+		if (field.value.length > maxlimit)
+			field.value = field.value.substring(0, maxlimit);
+		else
+			countfield.value = maxlimit - field.value.length;
+	}
+</script>
+
+<script src="../JavaScript/jquery.uitablefilter.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+</script>

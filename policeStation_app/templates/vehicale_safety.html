@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block css %}
+<style>
+    .box {
+        width: 1100px;
+        margin: 20px auto 0px auto;
+
+    }
+
+    .box h1,
+    p {
+        margin: 10;
+        padding: 10px 10px;
+
+    }
+
+    .box h1 {
+        font-weight: 500;
+        position: relative;
+        display: table;
+        margin: 0 auto 15px;
+        padding: 6px 15px;
+        font-size: 155%;
+        border-top: 4px double #5a71d6;
+        border-bottom: 4px double #ff7a7a;
+        text-transform: uppercase;
+        font-family: 'David Libre', serif;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+
+{% load static %}
+
+<section class="contact-form" style="width: 1200px; margin: auto;">
+    <div class="card">
+        <div class="card-body">
+            <div class="box">
+
+                <h1>Vehicale Safety</h1>
+                <p>1. Keep your vehicle in the parking place.<br>
+
+                    2. Avoid parking next to large vehicles or any objects.<br>
+
+                    3. Use parking lock during parking.<br>
+
+                    4. Close window glasses at the time of parking.<br>
+
+                    5. Keep important document and valuables with you.<br>
+
+                    6. Never leave your child alone inside the car and don’t give him/her the remote control when he/she
+                    is alone inside.<br>
+
+                    7. Purchase vehicle spares from authorized shops only.<br>
+
+                    8. Check tyre air pressure time to time.<br>
+
+                    9. Follow traffic rules.<br>
+
+                    10. Keep renewing your vehicle insurance and keep one of copies with your vehicle.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

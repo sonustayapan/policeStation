@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block css %}
+<style>
+    .box {
+        width: 1100px;
+        margin: 20px auto 0px auto;
+
+    }
+
+    .box h1,
+    p {
+        margin: 10;
+        padding: 10px 10px;
+
+    }
+
+    .box h1 {
+        font-weight: 500;
+        position: relative;
+        display: table;
+        margin: 0 auto 15px;
+        padding: 6px 15px;
+        font-size: 155%;
+        border-top: 4px double #5a71d6;
+        border-bottom: 4px double #ff7a7a;
+        text-transform: uppercase;
+        font-family: 'David Libre', serif;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+
+{% load static %}
+
+<section class="contact-form" style="width: 1200px; margin: auto;">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="box">
+                <h1>Senior Citizen Safety</h1>
+                <p>1. Generally, senior citizens face problem with the known people like servant, guard, driver etc. So
+                    be alert with them.<br>
+
+                    2. Before keeping a helping-hand at home try to get information about him like name, permanent
+                    address etc. Also verify the same with your local police station.<br>
+
+                    3. Never discuss about your property, bank saving account in front of servant or unknown person.<br>
+
+                    4. Do not leave your servant alone at home.<br>
+
+                    5. Do not allow servant’s relatives or friend at your home.<br>
+
+                    6. Behave gently with your driver, guard and servant.<br>
+
+                    7. Keep your valuable items at bank vaults/lockers.<br>
+
+                    8. Install latest safety instruments like door alarm, electronic eye bell, etc. at home..<br>
+
+                    9. Use peephole at your main entrance. Identify the person before allowing him or her in your
+                    house.<br>
+
+                    10. Keep your keys in a safe place. Don’t keep it in open place.<br>
+
+                    11. When you call somebody for maintenance work, first check his identify.<br>
+
+                    12. Use phone book to remember phone nos. <br>
+
+                    13. Inform your neighbours about your guests.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

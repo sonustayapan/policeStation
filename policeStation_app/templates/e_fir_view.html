@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="contact-form" style="width: 1600px; margin: auto;">
+    <div class="content">
+        <h1>E-Fir View</h1>
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-7 col-lg-8 col-xl-9 w-100">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <form method="post" action="{% url 'profile_update' %}">
+                                {% csrf_token %}
+                                <div class="row form-row">
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            <input type="text" name="role" class="form-control"
+                                                value="{{ user_profile.state}}">
+                                        </div>
+                                    </div>
+                                    
+                                   
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <select class="form-select" name="city" id="city">
+                                                {% for ct in all_city %}
+                                                <option value="{{ct.short_tag}}" data-name="">{{ct.tag}}</option>
+                                                {% endfor %}
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Police Station</label>
+                                            <select class="form-select" name="police_station" id="police_station">
+                                                {% for ps in all_police_station %}
+                                                <option value="{{ps.short_tag}}" data-name="">{{ps.tag}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Date</label>
+                                                <input type="date" name="date"
+                                                    class="form-control datetimepicker"
+                                                    value="{{ user_profile.Master.Date}}">
+                                        </div>
+                                    </div>
+                                    
+                                <div class="submit-section">
+                                    <button type="submit" class="btn btn-success submit-btn">Submit</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

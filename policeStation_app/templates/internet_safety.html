@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block css %}
+<style>
+    .box {
+        width: 1100px;
+        margin: 20px auto 0px auto;
+
+    }
+
+    .box h1,
+    p {
+        margin: 10;
+        padding: 10px 10px;
+
+    }
+
+    .box h1 {
+        font-weight: 500;
+        position: relative;
+        display: table;
+        margin: 0 auto 15px;
+        padding: 6px 15px;
+        font-size: 155%;
+        border-top: 4px double #5a71d6;
+        border-bottom: 4px double #ff7a7a;
+        text-transform: uppercase;
+        font-family: 'David Libre', serif;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+
+{% load static %}
+
+<section class="contact-form" style="width: 1200px; margin: auto;">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="box">
+                <h1>Internet Safety</h1>
+                <p>1. Do not give out personal information such as your address, mobile number, parents’ work address /
+                    telephone number, credit card, debit card, internet bank account or the name and location of your
+                    school
+                    without your parents’ permission.<br>
+                    2. Tell your parents right away if you come across any information that makes you feel
+                    uncomfortable. It is
+                    not your fault if you get a message like that.<br>
+                    3. Do not send your photograph to any one on the Net without initially checking with the parent or
+                    guardian.<br>
+                    4. Do not respond to messages via email, SMS or bulletin board items that are dirty, threatening or
+                    mean.<br>
+                    5. Never agree to meet someone you ‘met’ online without first checking with your parents. If your
+                    parents agree to the meeting, make sure that it is in a public place and take your mother or father
+                    along.<br>
+                    6. Talk with your parents so that you can set up rules for going online. Decide upon the time of day
+                    that you can be online, the length of time you can be online, and appropriate sites for you to
+                    visit. Do not access other areas or break these rules.<br>
+                    7. Do not give out your Internet password (email, bank account, facebook, twitter, orkut) to anyone
+                    (even your best friend) other than your parents.<br>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

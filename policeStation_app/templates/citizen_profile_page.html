@@ -1,0 +1,168 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+
+<div class="content">
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+				<div class="profile-sidebar">
+					<div class="widget-profile pro-widget-content">
+						<div class="profile-info-widget">
+							<a href="#" class="booking-doc-img">
+								<img src="{% static 'img/patients/patient.jpg' %}" alt="User Image">
+							</a>
+							<div class="change-photo-btn">
+								<span><i class="fa fa-upload"></i> Upload Photo</span>
+								<input type="file" class="upload">
+
+							</div>
+						</div>
+					</div>
+					<div class="dashboard-widget">
+						<nav class="dashboard-menu">
+
+							<div class="col-md-8">
+								<div class="tab-content profile-tab" id="myTabContent">
+									<div class="tab-pane fade show active" id="home" role="tabpanel"
+										aria-labelledby="home-tab">
+										<div class="row">
+											<div class="col-md-6">
+												<label>User Id</label>
+											</div>
+											<div class="col-md-6">
+												<p>Kshiti123</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<label>Name</label>
+											</div>
+											<div class="col-md-6">
+												<p>Kshiti Ghelani</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<label>Email</label>
+											</div>
+											<div class="col-md-6">
+												<p>kshitighelani@gmail.com</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<label>Phone</label>
+											</div>
+											<div class="col-md-6">
+												<p>123 456 7890</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<label>Profession</label>
+											</div>
+											<div class="col-md-6">
+												<p>Web Developer and Designer</p>
+											</div>
+										</div>
+									</div>
+
+						</nav>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-7 col-lg-8 col-xl-9">
+				<div class="card">
+					<div class="card-body">
+
+						<form>
+							<div class="row form-row">
+								<div class="row row-cols-1 row-cols-md-3 g-4">
+									<div class="col">
+										<div class="card text-center" style="width: 400px; height: 300px;">
+											<img src="{% static 'img/recuritmentImg.jpg' %}" class="card-img-top m-auto"
+												style="width: 150px; height: 150px;" alt="...">
+											<div class="card-body">
+												<h5 class="card-title">e-FIR</h5>
+												<a href="{% url 'e_fir_page' %}" class="card-text">All information about
+													Complaint</a>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="card text-center" style="width: 400px; height: 300px;">
+											<img src="{% static 'img/missingPersonsIcon.jpg' %}"
+												class="card-img-top m-auto" style="width: 150px; height: 150px;">
+											<div class="card-body">
+												<h5 class="card-title">Lost persons</h5>
+												<a href="{% url 'lost_parson' %}" class="card-text">Dtailed information
+													of missing persons</a>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="card text-center" style="width: 400px; height: 300px;">
+											<img src="{% static 'img/feed.png' %}" class="card-img-top m-auto"
+												style="width: 150px; height: 150px;" alt="...">
+											<div class="card-body">
+												<h5 class="card-title">Report / Feedback</h5>
+												<a href="{% url 'report' %}" class="card-text">Anything suspicious or
+													something you thing should be reqportedmto
+													us</a>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="card text-center" style="width: 400px; height: 300px;">
+											<img src="{% static 'img/verficationUnitImg (1).jpg' %}"
+												class="card-img-top m-auto" alt="..."
+												style="width: 150px; height: 150px;">
+											<div class="card-body">
+												<h5 class="card-title">Police Verification Services</h5>
+												<a href="{% url 'police_varification' %}" class="card-text">Various
+													police Verification service provided by Police</a>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="card text-center" style="width: 400px; height: 300px;">
+											<img src="{% static 'img/accidentCompensationIcon.jpg' %}"
+												class="card-img-top m-auto" alt="..."
+												style="width: 150px; height: 150px;">
+											<div class="card-body">
+												<h5 class="card-title">Accident compensation</h5>
+												<a href="{% url 'accident' %}" class="card-text">Accident compernstion
+													and other details</a>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+
+										<div class="card text-center" style="width: 400px; height: 300px;">
+											<img src="{% static 'img/passportIcon.jpg' %}" class="card-img-top m-auto"
+												alt="..." style="width: 150px; height: 150px;">
+											<div class="card-body">
+												<h5 class="card-title">Passport Status</h5>
+												<a href="{% url 'passport_status' %}" class="card-text">Status and
+													Proceedings Report of Passport Applications Received by
+													Police</a>
+											</div>
+										</div>
+									</div>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+{% endblock %}

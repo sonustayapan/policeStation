@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from doccure-html.dreamguystech.com/dental/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 12 Nov 2021 09:54:37 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Bihar Police, India</title>
+
+    <link type="image/x-icon" href="{% static 'img/BiharPolicenew.jpg' %}" rel="icon">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- {% block css %}
+    {% endblock %} -->
+
+    <!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+    {% if current_page not in acc_page %}
+    <div class="main-wrapper">
+        <img src="{% static 'img/emblem.png' %}" style="width:120px; height:120px" alt="...">
+        
+        <img src="{% static 'img/digitalindialogo.png' %}" style="width:300px; float:right; height:120px" alt="...">
+
+        <header class="header home">
+            <div class="top-header">
+                <div class="container-fluid">
+                    <div class="row justify-content-between align-items-center">
+
+                        <div class="col-12 col-md-6">
+                            <div class="left">
+                                <ul>
+                                    <li><span><i class="fas fa-phone-alt"></i>Contact Number : 9000556600 </span>
+                                    </li>
+                                    <li><span><i class="fas fa-map-marker-alt"></i>Location : Boring Road, Patna</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="right">
+                                <div class="input-group">
+                                    <a class="btn btn-primary" href="{% url 'register_page' %}"
+                                        role="button">Register</a>
+                                    {% if request.session.email %} 
+                                    <a class="btn btn-primary" href="{% url 'signout' %}" role="button">Signout</a>
+                                    {% else %}
+                                    <a class="btn btn-primary" href="{% url 'login_page' %}" role="button">Login</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    <nav class="navbar navbar-expand-lg header-nav">
+        <div class="navbar-header">
+            <a id="mobile_btn" href="javascript:void(0);">
+                <span class="bar-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </a>
+            <a href="index-2.html" class="navbar-brand logo">
+                <img src="{% static 'img/BiharPolicenew.jpg' %}" class="img-fluid" alt="Logo">
+
+            </a>
+        </div>
+        <div class="main-menu-wrapper">
+            <div class="menu-header">
+                <a href="index-2.html" class="menu-logo">
+                    <img src="{% static 'img/logo.png' %}" class="img-fluid" alt="Logo">
+                </a>
+                <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                    <i class="fas fa-times"></i>
+                </a>
+            </div>
+            <ul class="main-nav">
+                <li class="active">
+                    <a href="{%url 'index' %}">Home</a>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#">About US<i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'history' %}">History</a></li>
+                        <li><a href="{% url 'who_is_who' %}">Who is Who</a></li>
+                        <li><a href="{% url 'hierarchy' %}">Hierarchy</a></li>
+                        <li><a href="{% url 'ourgoal' %}">Our Goal</a></li>
+                    </ul>
+
+                <li class="has-submenu">
+                    <a href="#">Citizen Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'do_dont' %}">Do's & Don'ts</a></li>
+                        <li><a href="{% url 'emergency_dailing' %}">Emergency Dailing</a></li>
+                        <li><a href="{% url 'traffic_education' %}">Traffic Education</a></li>
+                        <li><a href="{% url 'public_interface' %}">Public Interface</a></li>
+                        <li><a href="{% url 'community_policing' %}">Community Policing</a></li>
+                    </ul>
+                </li>
+            </li>
+            
+                <li class="has-submenu">
+                    <a href="#">Safey & Security<i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'children_safety' %}">Children</a></li>
+                        <li><a href="{% url 'women_safety' %}">Women</a></li>
+                        <li><a href="{% url 'senior_citizen_safety' %}">Senior citizen</a></li>
+                        <li><a href="{% url 'road_safety' %}">Road</a></li>
+                        <li><a href="{% url 'vehicale_safety' %}">Vehicale</a></li>
+                        <li><a href="{% url 'mobile_safety' %}">Mobile</a></li>
+                        <li><a href="{% url 'internet_safety' %}">Internet</a></li>
+                    </ul>
+                    
+                    <li class="has-submenu">
+                        <a href="#">Public Awareness<i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="{% url 'citizen_rights' %}">Citizen's Rights</a></li>
+                            <li><a href="{% url 'women_rights' %}">Women's Rights</a></li>
+                            <li><a href="{% url 'children_rights' %}">Children's Rights</a></li>
+                            <li><a href="{% url 'arrest_rights' %}">Arrest Person Rights</a></li>
+                            <li><a href="{% url 'prisoner_rights' %}">Prisoner's Rights</a></li>
+                            <li><a href="{% url 'duties_rights' %}">Duties of Citizen</a></li>
+                        </ul>
+                </li>
+                <li>
+                    <a href="{% url 'contact_us' %}">Contact Us</a>
+                </li>
+            </div>
+            
+        </nav>
+        
+    </header>
+    {% endif %}
+    
+    {% block content %}
+    {% endblock %}
+
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <a href="index-2.html" class="footer-logo logo">
+                            <img src="{% static 'img/emblem.png' %}" class="img-fluid" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="social-icon media-btn mt-3 mb-2">
+                        <ul>
+                            <li>
+                                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 justify-content-center d-flex mt-4 mb-2">
+                        <div class="search-holder">
+                            <input type="text" name="search" placeholder="Your Email" />
+                            <button class="btn btn-yellow">Subscribe</button>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4 text-center">
+                        <ul class="policy-menu text-center">
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="doctor-dashboard.html">Doctors</a></li>
+                            <li><a href="blog-list.html">Blogs</a></li>
+                            <li><a href="#">Our Clinic</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="contact-us.html">Contact Us</a></li>
+                            <li><a href="term-condition.html">Terms and Conditions</a></li>
+                            <li><a href="privacy-policy.html">Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+
+    </div>
+
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/slick.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>

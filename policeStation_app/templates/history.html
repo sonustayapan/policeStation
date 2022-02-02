@@ -1,0 +1,85 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block css %}
+<style>
+    .box {
+        width: 1100px;
+        margin: 20px auto 0px auto;
+
+    }
+
+    .box h1,
+    p {
+        margin: 10;
+        padding: 10px 10px;
+
+    }
+
+    .box h1 {
+        font-weight: 500;
+        position: relative;
+        display: table;
+        margin: 0 auto 15px;
+        padding: 6px 15px;
+        font-size: 155%;
+        border-top: 4px double #5a71d6;
+        border-bottom: 4px double #ff7a7a;
+        text-transform: uppercase;
+        font-family: 'David Libre', serif;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-form" style="width: 1200px; margin: auto;">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="box">
+                <h1>History</h1>
+                <p>Policing in Bihar is more than 3000 years old. In fact,there are documented historical references to
+                    policing
+                    practices adopted by the Magadh Empire.
+                    Policing in the Modern era in Bihar began in the year 1862 with the introduction of the Indian
+                    Police Act of
+                    1861. Following the creation of the province of Bihar in 1912, the basic structure of police as it
+                    exists
+                    today
+                    in the whole of India was laid. There have been several officers of the Bihar province in
+                    pre-independence
+                    India
+                    who have made pioneering contributions to policing in India. To name a few; Mr. Walter Swain of
+                    Swain Beat
+                    system fame, Shri AK Sinha, the first Indian to become an IGP of any province, Shri BN Mullick, the
+                    founder
+                    of
+                    the Intelligence Bureau and Deputy Superintendent of Police, Khan Bahadur Azizul Haque, credited
+                    with the
+                    primary development of the fingerprint classification system, the famous ‘1024 pigeon holes’ cabinet
+                    system
+                    eventually named after his supervisor, Sir Edward Richard Henry leaps readily to the mind.
+
+                    Post-independence, Bihar Police holds the legacy of a rich tradition with the introduction of
+                    innovative
+                    policing and welfare practices such as creation of a Police Welfare fund, Police Hospitals and
+                    Police
+                    Information Room (PIR) in 1952. A Police Commission was also set up in 1958, whose mandate was to
+                    bring the
+                    police closer to the people. The Bihar Policemen’s Association which came into existence in 1967 was
+                    the
+                    first
+                    of its kind to look after the interests of the policemen. Today, Bihar police, with the cooperation
+                    of the
+                    people that it is mandated to serve and its rich traditions of excellence is firmly committed to
+                    confront
+                    and
+                    surmount the numerous challenges it faces.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
