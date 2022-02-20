@@ -10,6 +10,17 @@ gender_choice = (
     ('f', 'Female'),
 )
 
+select_category = (
+    ('Report', 'Report'),
+    ('Feedback', 'Feedback'),
+)
+
+select_appliction_type = (
+    ('RTI', 'RTI'),
+    (' Passport|PCC|IC|GEP', 'Passport|PCC|IC|GEP'),
+    ('Diplomite|Offical|Application', 'Diplomite|Offical|Application'),
+    ('Appeal Application', 'Appeal Application '),
+)
 
 class Role(models.Model):
     Role = models.CharField(max_length=50)
@@ -33,7 +44,6 @@ class Master(models.Model):
 
     def __str__(self):
         return self.Email
-
 
 
 state = {
@@ -111,32 +121,27 @@ class Complaint(models.Model):
         
 
 class Citizen(models.Model):
-    Complaint = models.ForeignKey(Complaint, on_delete=models.CASCADE)
-    Image = models.FileField(upload_to="citizen/profile_img/", default="default.png")
-    FullName = models.CharField(max_length=20,blank=True, default="")
-    Address = models.CharField(max_length=200, default="")
-    Country = models.CharField(max_length=20, default="")
-    State = models.CharField(max_length=20, choices=state_choices)
-    City = models.CharField(max_length=20, choices=city_choices)
-    Pin_Code = models.CharField(max_length=10, default="")
-    House_No = models.CharField(max_length=10, default="")
-    Discription = models.CharField(max_length=1000, default="")
-    Gender = models.CharField(max_length=15, choices=gender_choice)
+    Master = models.ForeignKey(Master,on_delete=models.CASCADE)
+    FullName = models.CharField(max_length=50, default='')
+    Mobile = models.CharField(max_length=10, default='')
+    Gender = models.CharField(max_length=50, choices=gender_choice)
+    Address = models.TextField(max_length=50, default='')
+    Country = models.CharField(max_length=20, default='')
+    State = models.CharField(max_length=20, default='')
+    City = models.CharField(max_length=20, default='')
+    Pincode = models.CharField(max_length=6, default='')
+
+    IsActive = models.BooleanField(default=False)  
 
     class Meta:
-        db_table = 'complaint'
+        db_table = 'Citizen'
 
     def __str__(self):
-        return self.FullName 
-
-    
+        return 'No Details' if not self.FullName else self.FullName
    
-    def __str__(self): 
-        return str(self.FullName)   
 
 class Department(models.Model):
-    Master = models.ForeignKey(Master, on_delete=models.CASCADE)
-    Image = models.FileField(upload_to="department/profile_img/", default="default.png")
+    Master = models.ForeignKey(Master, on_delete=models.CASCADE) 
     FullName = models.CharField(max_length=30, default="")
     Address = models.CharField(max_length=200, default="")
     Country = models.CharField(max_length=20, default="")
@@ -148,16 +153,15 @@ class Department(models.Model):
     Gender = models.CharField(max_length=15, choices=gender_choice)
 
 
-
     class Meta:
         db_table = 'department'
 
     def __str__(self):
-        return super(self.FullName)
+        return 'No Details' if not self.FullName else self.FullName
 
 
 
-
+ 
 class E_fir(models.Model):
     Master = models.ForeignKey(Master, on_delete=models.CASCADE)
     FullName = models.CharField(max_length=20, default="")
@@ -166,13 +170,15 @@ class E_fir(models.Model):
     State = models.CharField(max_length=20, default="")
     City = models.CharField(max_length=20, default="")
     PoliceStation = models.CharField(max_length=20, default="")
-    Pin_Code = models.CharField(max_length=10, default="")
     House_No = models.CharField(max_length=10, default="")
     E_fir = models.CharField(max_length=1000, default="")
     Gender = models.CharField(max_length=15, choices=gender_choice)
 
     class Meta:
         db_table = 'e_fir'
+
+    def __str__(self):
+        return self.FullName
 
 
 
@@ -199,7 +205,7 @@ class Passport_Status(models.Model):
     FullName = models.CharField(max_length=20, default="")
     Dob = models.DateField(auto_created=True, null=True)
     City = models.CharField(max_length=200, default="")
-    Select_Appliction_Type = models.CharField(max_length=20, default="")
+    Select_Appliction_Type = models.CharField(max_length=30, choices = select_appliction_type)
     
 
     class Meta:
@@ -230,22 +236,22 @@ class Police_Varification(models.Model):
     PoliceStation = models.CharField(max_length=20, default="")
     Pin_Code = models.CharField(max_length=12, default="")
     House_No = models.CharField(max_length=10, default="")
-    Dicripstion = models.CharField(max_length=1000, default="")
+    Discription = models.CharField(max_length=1000, default="")
     Gender = models.CharField(max_length=15, choices=gender_choice)
 
     class Meta:
         db_table = 'police_varification'
 
+
 class Report(models.Model):
     Master = models.ForeignKey(Master, on_delete=models.CASCADE)
-    Select_Category = models.CharField(max_length=20, default="")
+    Select_Category = models.CharField(max_length=20, choices=select_category)
     FullName = models.CharField(max_length=20, default="")
     Subject = models.CharField(max_length=15, default="")
     Address = models.CharField(max_length=200, default="")
     PoliceStation = models.CharField(max_length=20, default="")
     Mobile = models.CharField(max_length=12, default="")
     Discription = models.CharField(max_length=1000, default="")
-    Gender = models.CharField(max_length=15, choices=gender_choice)
 
     class Meta:
          db_table = 'report'

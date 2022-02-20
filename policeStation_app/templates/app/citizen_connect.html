@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="step-content">
+    <div class="step-tab-panel active" id="steppanel1">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"> <a class="nav-link fw-600 active" data-toggle="tab" href="#general_info">General
+                    Info</a></li>
+
+            <li class="nav-item"> <a class="nav-link fw-600" data-toggle="tab" href="#security_info">Security</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link fw-600" data-toggle="tab" href="#settings_info">Settings</a>
+            </li>
+
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="general_info">
+                <form class="needs-validation general-sec p-2 " novalidate="false" action="{% url 'profile_update' %}"
+                    method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h3 class="text-light-black fw-700">General Information hello</h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="fullname" class="text-light-black fw-700">Full Name </label>
+                                <input type="text" name="fullname" id="fullname"
+                                    class="form-control form-control-submit" placeholder="Enter FullName"
+                                    value="{{profile_data.FullName}}" required>
+                                <div class="invalid-feedback">Please enter your FullName.</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="country" class="text-light-black fw-700">Country <sup class="fs-16"></sup>
+                                </label>
+                                <input type="text" class="form-control" id="country" name="country"
+                                    value="{{profile_data.Country}}" placeholder="Enter country" required="">
+                                <div class="invalid-feedback">Please enter country.</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="gender" class="text-light-black fw-700">Gender</label>
+                                <select class="form-control form-control-submit custom-select-2 full-width"
+                                    name='gender' required>
+                                    <option>Select Gender</option>
+                                    <option class="m" value="m">Male</option>
+                                    <option class='f' value="f">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="state" class="text-light-black fw-700">State</label>
+                                <input type="text" name="state" id="state" class="form-control input-sm" maxlength="10"
+                                    placeholder="Enter your state" value="{{profile_data.State}}" required>
+                                <div class="invalid-feedback">Please enter your state.</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="mobile" class="text-light-black fw-700">Mobile</label>
+                                <input type="text" name="mobile" id="mobile" class="form-control form-control-submit"
+                                    placeholder=" Enter Mobile Number" value="{{profile_data.Mobile}}" required>
+                                <div class="invalid-feedback">Please enter your Mobile.</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="city" class="text-light-black fw-700">City</label>
+                                <input type="text" name="city" id="city" class="form-control input-sm" maxlength="10"
+                                    placeholder="Enter your city" value="{{profile_data.City}}" required>
+                                <div class="invalid-feedback">Please enter your city.</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="address" class="text-light-black fw-700">Address</label>
+                                <textarea name="address" id="address" placeholder="  Enter Full Address "
+                                    class="form-control form-control-submit"
+                                    required>{{profile_data.Address}}</textarea>
+                                <div class="invalid-feedback">Please enter your Address.</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="pincode" class="text-light-black fw-700">Pincode</label>
+                                <input type="text" name="pincode" class="form-control form-control-submit"
+                                    placeholder="Pincode number" value="{{profile_data.Pincode}}" required>
+                                <div class="invalid-feedback">Please enter your pincode.</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <button type="submit" class="btn-second btn-submit full-width">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-pane" id="security_info">
+                <form class=" needs-validation contact-sec p-2" novalidate="false" action=""
+                    method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h3 class="text-light-black fw-700">Change password</h3>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="password" class="text-light-black fw-700">Current password</label>
+                                <input type="password" name="current_password" class="form-control form-control-submit"
+                                    id="currentpassword" placeholder="Enter current password" required>
+                                <div class="invalid-feedback">Please Enter your current password.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="new_password" class="text-light-black fw-700">New password</label>
+                                <input type="password" name="new_password" class="form-control form-control-submit"
+                                    id="newpassword" placeholder="Enter new password" required>
+                                <div class="invalid-feedback">Please Enter your new password.</div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn-second btn-submit full-width">Change</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" id="settings_info">
+                <form class=" needs-validation setting-sec p-2" novalidate="false" action="#" method="POST"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-light-black fw-700">Account Settings</h3>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <div class="custom-control custom-switch mt-4">
+                                    <input type="checkbox" class="custom-control-input" id="deactivate">
+                                    <label class="custom-control-label" for="deactivate">Deactivate my account</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -12,14 +12,14 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form method="post" action="#">
+                            <form method="POST" action="#">
                                 {% csrf_token %}
                                 <div class="row form-row">
 
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Full Name</label>
-                                            <input type="text" name="role" class="form-control"
+                                            <input type="text" name="full_name" class="form-control"
                                                 value="{{ user_profile.Master.FullName}}">
                                         </div>
                                     </div>
@@ -46,13 +46,14 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Select Appliction Type</label>
-                                                <select class="form-select" name="country" id="floatingSelect">
-                                                    <option selected="">Select</option>
-                                                    <option value="1">Passport|PCC|IC|GEP</option>
-                                                    <option value="2">RTI</option>
-                                                    <option value="3">Diplomitc|Official ApplicationA</option>
-                                                    <option value="4">Appeal Application</option>
-                                                </select>
+                                            <select class="form-control form-control-submit custom-select-2 full-width"
+                                                name='select_appliction_type' required>
+                                                <option>Select Appliction Type</option>
+                                                <option class="RTI" value="RTI">RTI</option>
+                                                <option class='Passport|PCC|IC|GEP|' value="Passport|PCC|IC|GEP|">Passport|PCC|IC|GEP|</option>
+                                                <option class="Diplomite|Offical|Application" value="Diplomite|Offical|Application">Diplomite|Offical|Application</option>
+                                                <option class='Appeal Application' value="Appeal Application">Appeal Application</option>
+                                            </select>
                                         </div>
                                     </div>
                                     

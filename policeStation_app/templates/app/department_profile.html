@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="appoinment-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-12">
+				<div class="section-header text-center">
+					<h2 class="text-white">Complaint View</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="appoinment-section">
+	<div class="container">
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/038police.png' %}" class="card-img-top m-auto"
+						style="width: 150px; height: 150px;" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">e-FIR View</h5>
+						<a href="{% url 'fir_view' %}" class="card-text">All information about Complaint</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/person.png' %}" class="card-img-top m-auto"
+						style="width: 150px; height: 150px;">
+					<div class="card-body">
+						<h5 class="card-title">Lost Persons View</h5>
+						<a href="{% url 'lost_parsons_view' %}" class="card-text">Dtailed information of missing persons</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/146031.png' %}" class="card-img-top m-auto"
+						style="width: 150px; height: 150px;" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Report/Feedback View</h5>
+						<a href="{% url 'report_view' %}" class="card-text">Anything suspicious or something you thing should
+							be reqportedmto
+							us</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/ReportMissingPerson.png' %}" class="card-img-top m-auto" alt="..."
+						style="width: 150px; height: 150px;">
+					<div class="card-body">
+						<h5 class="card-title">Police Verification View</h5>
+						<a href="{% url 'police_verification_view' %}" class="card-text">Various police Verification service
+							provided by Police</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/accident.png' %}" class="card-img-top m-auto" alt="..."
+						style="width: 150px; height: 150px;">
+					<div class="card-body">
+						<h5 class="card-title">Accident complaint View</h5>
+						<a href="{% url 'accident_view' %}" class="card-text">Accident compernstion and other details</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/Apostille-icon.png' %}" class="card-img-top m-auto" alt="..."
+						style="width: 220px; height: 200px;">
+					<div class="card-body">
+						<h5 class="card-title">Passport Complaint View</h5>
+						<a href="{% url 'passport_status_view' %}" class="card-text">Status and Proceedings Report of
+							Passport Applications Received by
+							Police</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

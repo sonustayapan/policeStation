@@ -19,14 +19,14 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Full Name</label>
-                                            <input type="text" name="role" class="form-control"
+                                            <input type="text" name="full_name" class="form-control"
                                                 value="{{ user_profile.Master.FullName}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Adhar Number</label>
-                                            <input type="text" name="full_name" class="form-control"
+                                            <input type="text" name="adhar_no" class="form-control"
                                                 value="{{ user_profile.Adhar_Number}}">
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Age</label>
-                                            <input type="text" value="{{ user_profile.Age}}" class="form-control">
+                                            <input type="text" name="age" value="{{ user_profile.Age}}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -86,27 +86,27 @@
                                       <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Car No</label>
-                                            <input type="text" value="{{ user_profile.Car_No}}" class="form-control">
+                                            <input type="text" name="car_no" value="{{ user_profile.Car_No}}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Accident Car No</label>
-                                            <input type="text" value="{{ user_profile.Accident_Car_No}}" class="form-control">
+                                            <input type="text" name="accident_car" value="{{ user_profile.Accident_Car}}" class="form-control">
                                         </div>
                                     </div>
                                     
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input type="text" class="form-control" value="{{ user_profile.Address}}">
+                                            <input type="text" name="address" class="form-control" value="{{ user_profile.Address}}">
                                         </div>
                                     </div>
                                     
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea name="about" class="form-control" id="about" style="height: 205px"
-                                                placeholder="About"></textarea>
+                                            <textarea name="discription" class="form-control" id="about" style="height: 205px"
+                                                placeholder="discription"></textarea>
                                             <label for="about" class="col-md-4 col-lg-3 col-form-label">Discription</label>
                                         </div>
                                     </div>

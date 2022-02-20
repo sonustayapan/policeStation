@@ -12,10 +12,12 @@
 							<h3 class="card-title">DGP S.K Singhal</h3>
 							<div class="dgp">
 								<div class="d-grid gap-2 row-cols-md-12 mx-auto ">
-									<a href="{% url 'go_message' %}" class="btn btn-outline-info" type="button">Go Message</a>
-									<a href="{% url 'complaint' %}" class="btn btn-outline-info" type="button">Go Complaint</a>
+									<a href="{% url 'complaint' %}" class="btn btn-outline-info" type="button">Go
+										Complaint</a>
+									<a href="{% url 'complaint_view' %}" class="btn btn-outline-info"
+										type="button">Complaint View</a>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
@@ -29,8 +31,10 @@
 						<div class="card-body">
 							<h3 class="card-title">Chief Minister Nitish Kumar</h3>
 							<div class="d-grid gap-2 row-cols-md-12 mx-auto ">
-								<a href="{% url 'go_message' %}" class="btn btn-outline-info" type="button">Go Message</a>
-								<a href="{% url 'cm_message' %}" class="btn btn-outline-info" type="button">CM Message</a>
+								<a href="{% url 'go_message' %}" class="btn btn-outline-info" type="button">Go
+									Message</a>
+								<a href="{% url 'cm_message' %}" class="btn btn-outline-info" type="button">CM
+									Message</a>
 							</div>
 						</div>
 					</div>
@@ -44,7 +48,7 @@
 	<div class="container">
 		<div class="row row-cols-1 row-cols-md-3 g-4">
 			<div class="col">
-				<div class="card text-center"  style="width: 400px; height: 300px;">
+				<div class="card text-center" style="width: 400px; height: 300px;">
 					<img src="{% static 'img/recuritmentImg.jpg' %}" class="card-img-top m-auto"
 						style="width: 150px; height: 150px;" alt="...">
 					<div class="card-body">
@@ -65,11 +69,12 @@
 			</div>
 			<div class="col">
 				<div class="card text-center" style="width: 400px; height: 300px;">
-					<img src="{% static 'img/feed.png' %}" class="card-img-top m-auto" style="width: 150px; height: 150px;"
-						alt="...">
+					<img src="{% static 'img/feed.png' %}" class="card-img-top m-auto"
+						style="width: 150px; height: 150px;" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Report / Feedback</h5>
-						<a href="{% url 'report' %}" class="card-text">Anything suspicious or something you thing should be reqportedmto
+						<a href="{% url 'report' %}" class="card-text">Anything suspicious or something you thing should
+							be reqportedmto
 							us</a>
 					</div>
 				</div>
@@ -80,7 +85,8 @@
 						style="width: 150px; height: 150px;">
 					<div class="card-body">
 						<h5 class="card-title">Police Verification Services</h5>
-						<a href="{% url 'police_varification' %}" class="card-text">Various police Verification service provided by Police</a>
+						<a href="{% url 'police_varification' %}" class="card-text">Various police Verification service
+							provided by Police</a>
 					</div>
 				</div>
 			</div>
@@ -101,9 +107,23 @@
 						style="width: 150px; height: 150px;">
 					<div class="card-body">
 						<h5 class="card-title">Passport Status</h5>
-						<a href="{% url 'passport_status' %}" class="card-text">Status and Proceedings Report of Passport Applications Received by
+						<a href="{% url 'passport_status' %}" class="card-text">Status and Proceedings Report of
+							Passport Applications Received by
 							Police</a>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% if request.session.email %} 
+<section class="appoinment-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-12">
+				<div class="section-header text-center">
+					<h2 class="text-white">Complaint View</h2>
 				</div>
 			</div>
 		</div>
@@ -113,525 +133,543 @@
 
 <section class="appoinment-section">
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-12">
-				<div class="section-header text-center">
-					<h2 class="text-white">Make Complaint</h2>
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/038police.png' %}" class="card-img-top m-auto"
+						style="width: 150px; height: 150px;" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">e-FIR View</h5>
+						<a href="{% url 'fir_view' %}" class="card-text">All information about Complaint</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-</section>
-
-
-<div class="appmt-form location-col">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-12">
-				<div class="card">
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/person.png' %}" class="card-img-top m-auto"
+						style="width: 150px; height: 150px;">
 					<div class="card-body">
-						<div class="row">
-							<div class="col-12 col-md-6 col-lg-4">
-								<div class="form-group">
-									<label>Name</label>
-									<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-4">
-								<div class="form-group">
-									<label>Email</label>
-									<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-4">
-								<div class="form-group">
-									<label>Mobile Number</label>
-									<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-4">
-								<div class="form-group">
-									<label>Criminal Name</label>
-									<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-4">
-								<div class="form-group mb-0">
-									<label>Date</label>
-									<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-4">
-								<div class="form-group">
-									<label>Time</label>
-									<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-12 col-md-12 text-center">
-								<a href="{% url 'complaint' %}" class="btn-yellow">Make Complaint</a>
-							</div>
-						</div>
+						<h5 class="card-title">Lost Persons View</h5>
+						<a href="{% url 'lost_parsons_view' %}" class="card-text">Dtailed information of missing persons</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/146031.png' %}" class="card-img-top m-auto"
+						style="width: 150px; height: 150px;" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Report/Feedback View</h5>
+						<a href="{% url 'report_view' %}" class="card-text">Anything suspicious or something you thing should
+							be reqportedmto
+							us</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/ReportMissingPerson.png' %}" class="card-img-top m-auto" alt="..."
+						style="width: 150px; height: 150px;">
+					<div class="card-body">
+						<h5 class="card-title">Police Verification View</h5>
+						<a href="{% url 'police_verification_view' %}" class="card-text">Various police Verification service
+							provided by Police</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/accident.png' %}" class="card-img-top m-auto" alt="..."
+						style="width: 150px; height: 150px;">
+					<div class="card-body">
+						<h5 class="card-title">Accident complaint View</h5>
+						<a href="{% url 'accident_view' %}" class="card-text">Accident compernstion and other details</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+
+				<div class="card text-center" style="width: 400px; height: 300px;">
+					<img src="{% static 'img/Apostille-icon.png' %}" class="card-img-top m-auto" alt="..."
+						style="width: 220px; height: 200px;">
+					<div class="card-body">
+						<h5 class="card-title">Passport Complaint View</h5>
+						<a href="{% url 'passport_status_view' %}" class="card-text">Status and Proceedings Report of
+							Passport Applications Received by
+							Police</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</section>
+{% endif %}
 
-<section class="aboutus-col">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-lg-6">
-				<div class="about-left">
-					<img src="{% static 'img/india_map.jpg' %}" alt="">
+
+
+	<section class="aboutus-col">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					<div class="about-left">
+						<img src="{% static 'img/india_map.jpg' %}" alt="">
+					</div>
 				</div>
-			</div>
-			<div class="col-12 col-lg-6">
-				<div class="about-right">
-					<h6>Map of Bihar state police</h6>
-					<h2>The Bihar Police Department is the law enforcement agency for the state of Bihar, India, with
-						its headquarters in Patna.</h2>
-					<p>The Bihar Police Department is the law enforcement agency for the state of Bihar, India, with its
-						headquarters in Patna. It has a sanctioned strength of 111,000 personnel, and as of 2017,
-						employs 77,000 personnel.[2] The annual Budgeted Estimate (BE) for Bihar Police for the year
-						2020-21 is ₹10,021 crore (US$1.3 billion), of which ₹145 crore (US$19 million) has been
-						allocated to Police Modernization.</p>
-					<p>Modern policing in Bihar started in 1862 under the provisions of the Indian Police Act 1861.
-						After Bihar was carved out as an independent province in 1912 from Bengal, the basic structure
-						of Police was created as it exists today. It's major reorganization Several pre-eminent police
-						officers adorned pre-independent Bihar Police Force. These include Mr. Walter Swain of Swain
-						Beat system fame, Shri AK Sinha, the first Indian to become an IGP of any province, Shri BN
-						Mullick, the second director of the Intelligence Bureau (IB), Khan Bahadur Azizul Haque,
-						credited with the primary development of the famous ‘1024 pigeon holes’ cabinet system
-						eventually named after his supervisor, Sir Edward Richard Henry.</p>
-					<p class="mb-0">Post independence, Bihar Police led innovative policing measures, such as creation
-						of a Police Welfare fund, Police Hospitals and Police Information Room (PIR) in 1952. Bihar
-						Policemen’s Association, which looks after the interests of policemen, was one of the first
-						police welfare associations in all of India in 1967. A Police Commission was also set up in
-						1958, whose mandate was to bring the police closer to the people</p>
+				<div class="col-12 col-lg-6">
+					<div class="about-right">
+						<h6>Map of Bihar state police</h6>
+						<h2>The Bihar Police Department is the law enforcement agency for the state of Bihar, India,
+							with
+							its headquarters in Patna.</h2>
+						<p>The Bihar Police Department is the law enforcement agency for the state of Bihar, India, with
+							its
+							headquarters in Patna. It has a sanctioned strength of 111,000 personnel, and as of 2017,
+							employs 77,000 personnel.[2] The annual Budgeted Estimate (BE) for Bihar Police for the year
+							2020-21 is ₹10,021 crore (US$1.3 billion), of which ₹145 crore (US$19 million) has been
+							allocated to Police Modernization.</p>
+						<p>Modern policing in Bihar started in 1862 under the provisions of the Indian Police Act 1861.
+							After Bihar was carved out as an independent province in 1912 from Bengal, the basic
+							structure
+							of Police was created as it exists today. It's major reorganization Several pre-eminent
+							police
+							officers adorned pre-independent Bihar Police Force. These include Mr. Walter Swain of Swain
+							Beat system fame, Shri AK Sinha, the first Indian to become an IGP of any province, Shri BN
+							Mullick, the second director of the Intelligence Bureau (IB), Khan Bahadur Azizul Haque,
+							credited with the primary development of the famous ‘1024 pigeon holes’ cabinet system
+							eventually named after his supervisor, Sir Edward Richard Henry.</p>
+						<p class="mb-0">Post independence, Bihar Police led innovative policing measures, such as
+							creation
+							of a Police Welfare fund, Police Hospitals and Police Information Room (PIR) in 1952. Bihar
+							Policemen’s Association, which looks after the interests of policemen, was one of the first
+							police welfare associations in all of India in 1967. A Police Commission was also set up in
+							1958, whose mandate was to bring the police closer to the people</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<div>
-	<div class="container">
-		<table class="table">
-			<!-- <thead>
+	<div>
+		<div class="container">
+			<table class="table">
+				<!-- <thead>
 				<tr>
 					<th scope="col">First</th>
 					<th scope="col">Last</th>
 				</tr>
 			</thead> -->
-			<tbody>
-				<tr>
-					<td>
-						<h1><strong>Bihar District Map</strong></h1>
-						<h3><strong>in Bihar is more than 3000 years old.In fact,<br>
-								there are documented historical references<br>
-								to policing practices adopted by the Magadh Empire.</strong></h3>
-						<p>Post-independence, Bihar Police holds the legacy of a rich<br>
-							tradition with the introduction of innovative policing and welfare<br>
-							practices such as creation of a Police Welfare fund, Police Hospitals <br>
-							and Police Information Room (PIR) in 1952. A Police Commission was<br>
-							also set up in 1958, whose mandate was to bring the police closer <br>
-							to the people. The Bihar Policemen’s Association which came into <br>
-							existence in 1967 was the first of its kind to look after the <br>
-							interests of the policemen. Today, Bihar police, with the cooperation<br>
-							of the people that it is mandated to serve and its rich traditions<br>
-							of excellence is firmly committed to confront and surmount the <br>
-							numerous challenges it faces.</p>
-					</td>
-					<td><img src="{% static 'img/bihar_map.png' %}" alt="" height=600 width=900></img></td>
-				</tr>
-			</tbody>
-		</table>
+				<tbody>
+					<tr>
+						<td>
+							<h1><strong>Bihar District Map</strong></h1>
+							<h3><strong>in Bihar is more than 3000 years old.In fact,<br>
+									there are documented historical references<br>
+									to policing practices adopted by the Magadh Empire.</strong></h3>
+							<p>Post-independence, Bihar Police holds the legacy of a rich<br>
+								tradition with the introduction of innovative policing and welfare<br>
+								practices such as creation of a Police Welfare fund, Police Hospitals <br>
+								and Police Information Room (PIR) in 1952. A Police Commission was<br>
+								also set up in 1958, whose mandate was to bring the police closer <br>
+								to the people. The Bihar Policemen’s Association which came into <br>
+								existence in 1967 was the first of its kind to look after the <br>
+								interests of the policemen. Today, Bihar police, with the cooperation<br>
+								of the people that it is mandated to serve and its rich traditions<br>
+								of excellence is firmly committed to confront and surmount the <br>
+								numerous challenges it faces.</p>
+						</td>
+						<td><img src="{% static 'img/bihar_map.png' %}" alt="" height=600 width=900></img></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
 
-<section class="aboutus-col">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-lg-6">
-				<div class="about-left">
-					<img src="{% static 'img/jails.jpg' %}" alt="" style="width: 650px; height:700px;">
+	<section class="aboutus-col">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					<div class="about-left">
+						<img src="{% static 'img/jails.jpg' %}" alt="" style="width: 650px; height:700px;">
+					</div>
 				</div>
-			</div>
-			<div class="col-12 col-lg-6">
-				<div class="about-right">
-					<h2>The role of the Police and Crime Commissioner</h2>
-					<h3>The role of a Police and Crime Commissioner (PCC) is to be the voice of the people in policing,
-						and to hold the Chief Constable to account for how he/she discharges their functions. The aim of
-						all PCCs is to ensure the delivery of an effective and efficient police service within their
-						force area.</h3>
-					<p>Police and their functions are very important in criminal justice system. Because it is the
-						principal duty of the police to arrest criminals and conduct them until the conclusion of trial
-						for preventing crime. Police are legally authorized to use force and other means of coercion to
-						execute public and social order.</p>
-					<p>Modern policing in Bihar started in 1862 under the provisions of the Indian Police Act 1861.
-						After Bihar was carved out as an independent province in 1912 from Bengal.</p>
-					<p class="mb-0">Post independence, Bihar Police led innovative policing measures, such as creation
-						of a Police Welfare fund, Police Hospitals and Police Information Room (PIR) in 1952. Bihar
-						Policemen’s Association, which looks after the interests of policemen, was one of the first
-						police welfare associations in all of India in 1967. A Police Commission was also set up in
-						1958, whose mandate was to bring the police closer to the people</p>
+				<div class="col-12 col-lg-6">
+					<div class="about-right">
+						<h2>The role of the Police and Crime Commissioner</h2>
+						<h3>The role of a Police and Crime Commissioner (PCC) is to be the voice of the people in
+							policing,
+							and to hold the Chief Constable to account for how he/she discharges their functions. The
+							aim of
+							all PCCs is to ensure the delivery of an effective and efficient police service within their
+							force area.</h3>
+						<p>Police and their functions are very important in criminal justice system. Because it is the
+							principal duty of the police to arrest criminals and conduct them until the conclusion of
+							trial
+							for preventing crime. Police are legally authorized to use force and other means of coercion
+							to
+							execute public and social order.</p>
+						<p>Modern policing in Bihar started in 1862 under the provisions of the Indian Police Act 1861.
+							After Bihar was carved out as an independent province in 1912 from Bengal.</p>
+						<p class="mb-0">Post independence, Bihar Police led innovative policing measures, such as
+							creation
+							of a Police Welfare fund, Police Hospitals and Police Information Room (PIR) in 1952. Bihar
+							Policemen’s Association, which looks after the interests of policemen, was one of the first
+							police welfare associations in all of India in 1967. A Police Commission was also set up in
+							1958, whose mandate was to bring the police closer to the people</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 
+	<section class="doctors-col">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="doctors-title text-center">
+					<h6>Best IPS Officers Of Bihar</h6>
+					<h2>Our IPS Officers</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="doctor-slider slider">
 
-<section class="doctors-col">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="doctors-title text-center">
-				<h6>Best IPS Officers Of Bihar</h6>
-				<h2>Our IPS Officers</h2>
+						<div class="profile-widget">
+							<div class="doc-img">
+								<a href="doctor-profile.html">
+									<img class="img-fluid" alt="User Image" src="{% static 'img/unnamed_dgp.jpg' %}"
+										style="height: 250px;">
+								</a>
+							</div>
+							<div class="pro-content">
+								<h3 class="title">
+									<a href="doctor-profile.html">S.K Singhal</a>
+								</h3>
+								<p class="speciality">DGP, Bihar</p>
+								<ul class="available-info">
+									<li>
+										<i class="fas fa-map-marker-alt"></i> Patna, Bihar
+									</li>
+									<li>
+										<i class="fas fa-phone"></i>+919899775665
+									</li>
+								</ul>
+							</div>
+							<div class="pro-footer">
+								<ul class="policy-menu text-center">
+									<li><a href="#">Go Call</a></li>
+									<li><a href="#">emergency</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="profile-widget">
+							<div class="doc-img">
+								<a href="doctor-profile.html">
+									<img class="img-fluid" alt="User Image" src="{% static 'img/ipspatna.webp' %}"
+										style="height: 250px;">
+								</a>
+							</div>
+							<div class="pro-content">
+								<h3 class="title">
+									<a href="doctor-profile.html">Vikas Vaibhav</a>
+								</h3>
+								<p class="speciality">ADGP, Bihar</p>
+								<ul class="available-info">
+									<li>
+										<i class="fas fa-map-marker-alt"></i> Patna, Bihar
+									</li>
+									<li>
+										<i class="fas fa-phone"></i>+918956231447
+									</li>
+								</ul>
+							</div>
+							<div class="pro-footer">
+								<ul class="policy-menu text-center">
+									<li><a href="#">Go Call</a></li>
+									<li><a href="#">emergency</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="profile-widget">
+							<div class="doc-img">
+								<a href="doctor-profile.html">
+									<img class="img-fluid" alt="User Image" src="{% static 'img/190102080248442.jpg' %}"
+										style="height: 250px;">
+								</a>
+							</div>
+							<div class="pro-content">
+								<h3 class="title">
+									<a href="doctor-profile.html">Garima Malik</a>
+								</h3>
+								<p class="speciality">DIG, Bihar</p>
+								<ul class="available-info">
+									<li>
+										<i class="fas fa-map-marker-alt"></i> Bhagalpur, Bihar
+									</li>
+									<li>
+										<i class="fas fa-phone"></i>+918899556622
+									</li>
+								</ul>
+							</div>
+							<div class="pro-footer">
+								<ul class="policy-menu text-center">
+									<li><a href="#">Go Call</a></li>
+									<li><a href="#">emergency</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="profile-widget">
+							<div class="doc-img">
+								<a href="doctor-profile.html">
+									<img class="img-fluid" alt="User Image" src="{% static 'img/cop_050120-1.jpg' %}"
+										style="height: 250px;">
+								</a>
+							</div>
+							<div class="pro-content">
+								<h3 class="title">
+									<a href="doctor-profile.html">Amit Kumar</a>
+								</h3>
+								<p class="speciality">SSP, Chhapra</p>
+								<ul class="available-info">
+									<li>
+										<i class="fas fa-map-marker-alt"></i> Nalanda, Bihar
+									</li>
+									<li>
+										<i class="fas fa-phone"></i>+917755655612
+									</li>
+								</ul>
+							</div>
+							<div class="pro-footer">
+								<ul class="policy-menu text-center">
+									<li><a href="#">Go Call</a></li>
+									<li><a href="#">emergency</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="profile-widget">
+							<div class="doc-img">
+								<a href="doctor-profile.html">
+									<img class="img-fluid" alt="User Image"
+										src="{% static 'img/channels4_profile.jpg' %}" style="height: 250px;">
+								</a>
+							</div>
+							<div class="pro-content">
+								<h3 class="title">
+									<a href="doctor-profile.html">Navjot Simi</a>
+								</h3>
+								<p class="speciality">ASP, Munger</p>
+								<ul class="available-info">
+									<li>
+										<i class="fas fa-map-marker-alt"></i> Patna, Bihar
+									</li>
+									<li>
+										<i class="fas fa-phone"></i>+918899154562
+									</li>
+								</ul>
+							</div>
+							<div class="pro-footer">
+								<ul class="policy-menu text-center">
+									<li><a href="#">Go Call</a></li>
+									<li><a href="#">emergency</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="profile-widget">
+							<div class="doc-img">
+								<a href="doctor-profile.html">
+									<img class="img-fluid" alt="User Image"
+										src="{% static 'img/main-qimg-1efff0edcb72bb0f4763b2d3a5e7755a-lq.jpg' %}"
+										style="height: 250px;">
+								</a>
+							</div>
+							<div class="pro-content">
+								<h3 class="title">
+									<a href="doctor-profile.html">Mannu Maharaj</a>
+								</h3>
+								<p class="speciality">SSP, Patna</p>
+								<ul class="available-info">
+									<li>
+										<i class="fas fa-map-marker-alt"></i> Patna, Bihar
+									</li>
+									<li>
+										<i class="fas fa-phone"></i>+918899154562
+									</li>
+								</ul>
+							</div>
+							<div class="pro-footer">
+								<ul class="policy-menu text-center">
+									<li><a href="#">Go Call</a></li>
+									<li><a href="#">emergency</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="profile-widget">
+							<div class="doc-img">
+								<a href="doctor-profile.html">
+									<img class="img-fluid" alt="User Image"
+										src="{% static 'img/Lipi_SIngh_Facebook.jpg' %}" style="height: 250px;">
+								</a>
+							</div>
+							<div class="pro-content">
+								<h3 class="title">
+									<a href="doctor-profile.html">Lipi Singh</a>
+								</h3>
+								<p class="speciality">ASP, Munger</p>
+								<ul class="available-info">
+									<li>
+										<i class="fas fa-map-marker-alt"></i> Munger, Bihar
+									</li>
+									<li>
+										<i class="fas fa-phone"></i>+918956234587
+									</li>
+								</ul>
+							</div>
+							<div class="pro-footer">
+								<ul class="policy-menu text-center">
+									<li><a href="#">Go Call</a></li>
+									<li><a href="#">emergency</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="profile-widget">
+							<div class="doc-img">
+								<a href="doctor-profile.html">
+									<img class="img-fluid" alt="User Image" src="{% static 'img/images.jpg' %}"
+										style="height: 250px;">
+								</a>
+							</div>
+							<div class="pro-content">
+								<h3 class="title">
+									<a href="doctor-profile.html">Vinay Tiwari</a>
+								</h3>
+								<p class="speciality">SSP, Baisali</p>
+								<ul class="available-info">
+									<li>
+										<i class="fas fa-map-marker-alt"></i> Hajipur, Bihar
+									</li>
+									<li>
+										<i class="fas fa-phone"></i>+918899556622
+									</li>
+								</ul>
+							</div>
+							<div class="pro-footer">
+								<ul class="policy-menu text-center">
+									<li><a href="#">Go Call</a></li>
+									<li><a href="#">emergency</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-12 col-md-12 text-center pt-4">
+						<a href="#" class="view-all">View All</a>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="doctor-slider slider">
-
-					<div class="profile-widget">
-						<div class="doc-img">
-							<a href="doctor-profile.html">
-								<img class="img-fluid" alt="User Image" src="{% static 'img/unnamed_dgp.jpg' %}"
-									style="height: 250px;">
-							</a>
-						</div>
-						<div class="pro-content">
-							<h3 class="title">
-								<a href="doctor-profile.html">S.K Singhal</a>
-							</h3>
-							<p class="speciality">DGP, Bihar</p>
-							<ul class="available-info">
-								<li>
-									<i class="fas fa-map-marker-alt"></i> Patna, Bihar
-								</li>
-								<li>
-									<i class="fas fa-phone"></i>+919899775665
-								</li>
-							</ul>
-						</div>
-						<div class="pro-footer">
-							<ul class="policy-menu text-center">
-								<li><a href="#">Go Call</a></li>
-								<li><a href="#">emergency</a></li>
-							</ul>
-						</div>
-					</div>
+	</section>
 
 
-					<div class="profile-widget">
-						<div class="doc-img">
-							<a href="doctor-profile.html">
-								<img class="img-fluid" alt="User Image" src="{% static 'img/ipspatna.webp' %}"
-									style="height: 250px;">
-							</a>
-						</div>
-						<div class="pro-content">
-							<h3 class="title">
-								<a href="doctor-profile.html">Vikas Vaibhav</a>
-							</h3>
-							<p class="speciality">ADGP, Bihar</p>
-							<ul class="available-info">
-								<li>
-									<i class="fas fa-map-marker-alt"></i> Patna, Bihar
-								</li>
-								<li>
-									<i class="fas fa-phone"></i>+918956231447
-								</li>
-							</ul>
-						</div>
-						<div class="pro-footer">
-							<ul class="policy-menu text-center">
-								<li><a href="#">Go Call</a></li>
-								<li><a href="#">emergency</a></li>
-							</ul>
-						</div>
-					</div>
 
-
-					<div class="profile-widget">
-						<div class="doc-img">
-							<a href="doctor-profile.html">
-								<img class="img-fluid" alt="User Image" src="{% static 'img/190102080248442.jpg' %}"
-									style="height: 250px;">
-							</a>
-						</div>
-						<div class="pro-content">
-							<h3 class="title">
-								<a href="doctor-profile.html">Garima Malik</a>
-							</h3>
-							<p class="speciality">DIG, Bihar</p>
-							<ul class="available-info">
-								<li>
-									<i class="fas fa-map-marker-alt"></i> Bhagalpur, Bihar
-								</li>
-								<li>
-									<i class="fas fa-phone"></i>+918899556622
-								</li>
-							</ul>
-						</div>
-						<div class="pro-footer">
-							<ul class="policy-menu text-center">
-								<li><a href="#">Go Call</a></li>
-								<li><a href="#">emergency</a></li>
-							</ul>
-						</div>
-					</div>
-
-
-					<div class="profile-widget">
-						<div class="doc-img">
-							<a href="doctor-profile.html">
-								<img class="img-fluid" alt="User Image" src="{% static 'img/cop_050120-1.jpg' %}"
-									style="height: 250px;">
-							</a>
-						</div>
-						<div class="pro-content">
-							<h3 class="title">
-								<a href="doctor-profile.html">Amit Kumar</a>
-							</h3>
-							<p class="speciality">SSP, Chhapra</p>
-							<ul class="available-info">
-								<li>
-									<i class="fas fa-map-marker-alt"></i> Nalanda, Bihar
-								</li>
-								<li>
-									<i class="fas fa-phone"></i>+917755655612
-								</li>
-							</ul>
-						</div>
-						<div class="pro-footer">
-							<ul class="policy-menu text-center">
-								<li><a href="#">Go Call</a></li>
-								<li><a href="#">emergency</a></li>
-							</ul>
-						</div>
-					</div>
-
-
-					<div class="profile-widget">
-						<div class="doc-img">
-							<a href="doctor-profile.html">
-								<img class="img-fluid" alt="User Image" src="{% static 'img/channels4_profile.jpg' %}"
-									style="height: 250px;">
-							</a>
-						</div>
-						<div class="pro-content">
-							<h3 class="title">
-								<a href="doctor-profile.html">Navjot Simi</a>
-							</h3>
-							<p class="speciality">ASP, Munger</p>
-							<ul class="available-info">
-								<li>
-									<i class="fas fa-map-marker-alt"></i> Patna, Bihar
-								</li>
-								<li>
-									<i class="fas fa-phone"></i>+918899154562
-								</li>
-							</ul>
-						</div>
-						<div class="pro-footer">
-							<ul class="policy-menu text-center">
-								<li><a href="#">Go Call</a></li>
-								<li><a href="#">emergency</a></li>
-							</ul>
-						</div>
-					</div>
-
-
-					<div class="profile-widget">
-						<div class="doc-img">
-							<a href="doctor-profile.html">
-								<img class="img-fluid" alt="User Image"
-									src="{% static 'img/main-qimg-1efff0edcb72bb0f4763b2d3a5e7755a-lq.jpg' %}"
-									style="height: 250px;">
-							</a>
-						</div>
-						<div class="pro-content">
-							<h3 class="title">
-								<a href="doctor-profile.html">Mannu Maharaj</a>
-							</h3>
-							<p class="speciality">SSP, Patna</p>
-							<ul class="available-info">
-								<li>
-									<i class="fas fa-map-marker-alt"></i> Patna, Bihar
-								</li>
-								<li>
-									<i class="fas fa-phone"></i>+918899154562
-								</li>
-							</ul>
-						</div>
-						<div class="pro-footer">
-							<ul class="policy-menu text-center">
-								<li><a href="#">Go Call</a></li>
-								<li><a href="#">emergency</a></li>
-							</ul>
-						</div>
-					</div>
-
-
-					<div class="profile-widget">
-						<div class="doc-img">
-							<a href="doctor-profile.html">
-								<img class="img-fluid" alt="User Image" src="{% static 'img/Lipi_SIngh_Facebook.jpg' %}"
-									style="height: 250px;">
-							</a>
-						</div>
-						<div class="pro-content">
-							<h3 class="title">
-								<a href="doctor-profile.html">Lipi Singh</a>
-							</h3>
-							<p class="speciality">ASP, Munger</p>
-							<ul class="available-info">
-								<li>
-									<i class="fas fa-map-marker-alt"></i> Munger, Bihar
-								</li>
-								<li>
-									<i class="fas fa-phone"></i>+918956234587
-								</li>
-							</ul>
-						</div>
-						<div class="pro-footer">
-							<ul class="policy-menu text-center">
-								<li><a href="#">Go Call</a></li>
-								<li><a href="#">emergency</a></li>
-							</ul>
-						</div>
-					</div>
-
-
-					<div class="profile-widget">
-						<div class="doc-img">
-							<a href="doctor-profile.html">
-								<img class="img-fluid" alt="User Image" src="{% static 'img/images.jpg' %}"
-									style="height: 250px;">
-							</a>
-						</div>
-						<div class="pro-content">
-							<h3 class="title">
-								<a href="doctor-profile.html">Vinay Tiwari</a>
-							</h3>
-							<p class="speciality">SSP, Baisali</p>
-							<ul class="available-info">
-								<li>
-									<i class="fas fa-map-marker-alt"></i> Hajipur, Bihar
-								</li>
-								<li>
-									<i class="fas fa-phone"></i>+918899556622
-								</li>
-							</ul>
-						</div>
-						<div class="pro-footer">
-							<ul class="policy-menu text-center">
-								<li><a href="#">Go Call</a></li>
-								<li><a href="#">emergency</a></li>
-							</ul>
-						</div>
-					</div>
-
+	<section class="blog-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="section-header text-center mb-4">
+					<h2>Our Bihar</h2>
 				</div>
-				<div class="col-12 col-md-12 text-center pt-4">
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="blog-box">
+						<div class="blog-img">
+							<img src="{% static 'img/Places-To-Visit-In-Bihar.jpg' %}" alt="" style="height: 250px;">
+						</div>
+						<div class="blog-content">
+							<h2>Gautam Budha, Gaya</h2>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+								accusantium
+								doloremque.</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="blog-box">
+						<div class="blog-img">
+							<img src="{% static 'img/fh_20190728235947.jpg' %}" alt="" style="height: 250px;">
+						</div>
+						<div class="blog-content">
+							<h2>Shershah Suri, Makbra</h2>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+								accusantium
+								doloremque.</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="blog-box">
+						<div class="blog-img">
+							<img src="{% static 'img/golghar.jpg' %}" alt="" style="height: 250px;">
+						</div>
+						<div class="blog-content">
+							<h2>Golghar, Patna</h2>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+								accusantium
+								doloremque.</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="blog-box">
+						<div class="blog-img">
+							<img src="{% static 'img/nalanda-university.jpg' %}" alt="" style="height: 250px;">
+						</div>
+						<div class="blog-content">
+							<h2>Nalanda University</h2>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+								accusantium
+								doloremque.</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-12 col-md-12 blog-bottom text-center pt-5">
 					<a href="#" class="view-all">View All</a>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+
+	<section class="contact-map d-flex">
+		<iframe
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955644.231117644!2d85.00565472566669!3d26.017524148322284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f29937c52d4f05%3A0x831a0e05f607b270!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1639114665961!5m2!1sen!2sin"
+			width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+	</section>
 
 
+	{% endblock %}
 
-<section class="blog-section">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="section-header text-center mb-4">
-				<h2>Our Bihar</h2>
-			</div>
-		</div>
-		<div class="row justify-content-center">
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="blog-box">
-					<div class="blog-img">
-						<img src="{% static 'img/Places-To-Visit-In-Bihar.jpg' %}" alt="" style="height: 250px;">
-					</div>
-					<div class="blog-content">
-						<h2>Gautam Budha, Gaya</h2>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-							accusantium
-							doloremque.</p>
-					</div>
-					
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="blog-box">
-					<div class="blog-img">
-						<img src="{% static 'img/fh_20190728235947.jpg' %}" alt="" style="height: 250px;">
-					</div>
-					<div class="blog-content">
-						<h2>Shershah Suri, Makbra</h2>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-							accusantium
-							doloremque.</p>
-					</div>
-					
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="blog-box">
-					<div class="blog-img">
-						<img src="{% static 'img/golghar.jpg' %}" alt="" style="height: 250px;">
-					</div>
-					<div class="blog-content">
-						<h2>Golghar, Patna</h2>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-							accusantium
-							doloremque.</p>
-					</div>
-					
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3">
-				<div class="blog-box">
-					<div class="blog-img">
-						<img src="{% static 'img/nalanda-university.jpg' %}" alt="" style="height: 250px;">
-					</div>
-					<div class="blog-content">
-						<h2>Nalanda University</h2>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-							accusantium
-							doloremque.</p>
-					</div>
-					
-				</div>
-			</div>
-			<div class="col-12 col-md-12 blog-bottom text-center pt-5">
-				<a href="#" class="view-all">View All</a>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="contact-map d-flex">
-	<iframe
-		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955644.231117644!2d85.00565472566669!3d26.017524148322284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f29937c52d4f05%3A0x831a0e05f607b270!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1639114665961!5m2!1sen!2sin"
-		width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-</section>
-
-
-{% endblock %}
-
-{% block scripts %}
-<script>
-	// $(document).ready(function(){
-	$('.carousel').carousel()
+	{% block scripts %}
+	<script>
+		// $(document).ready(function(){
+		$('.carousel').carousel()
 	// })
 
-</script>
-{% endblock %}
+	</script>
+	{% endblock %}

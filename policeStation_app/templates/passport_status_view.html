@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for i in passport_status %}
+<section class="contact-form" style="width: 1000px; margin: auto;">
+    <div class="content">
+        <h1 style="text-align:center">Passport_Status {{i.id}}</h1>
+    
+        <div class="container-fluid">
+    
+    <table class="table table-striped">
+       
+        <tbody>
+          <tr>
+             <td>Name :-</td>
+             <td>{{i.FullName}}</td>
+          </tr>
+          
+          <tr>
+            <td>Select Appliction Type :-</td>
+            <td>{{i.select_appliction_type}}</td>
+          </tr>
+        
+          <tr>
+            <td>City :-</td>
+            <td>{{i.City}}</td>
+          </tr>
+          <tr>
+            <td>Date Of Birth :-</td>
+            <td>{{i.Dob}}</td>
+          </tr>
+          <tr>
+         
+        </tbody>
+        
+      </table>
+    </div>
+    </div>
+  </section>
+  {% endfor %}
+
+{% endblock %}

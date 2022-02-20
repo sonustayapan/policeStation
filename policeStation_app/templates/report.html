@@ -12,22 +12,25 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form method="post" action="#">
+                            <form method="POST" action="#">
                                 {% csrf_token %}
                                 <div class="row form-row">
+                                
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Select category*</label>
-                                                <select class="form-select" name="country" id="floatingSelect">
-                                                    <option selected="">Report</option>
-                                                    <option value="1">Feedback</option>
-                                                </select>
+                                            <label>Select category</label>
+                                            <select class="form-control form-control-submit custom-select-2 full-width"
+                                                name='select_category' required>
+                                                <option>Select category</option>
+                                                <option class="Report" value="Report">Report</option>
+                                                <option class='Feedback' value="Feedback">Feedback</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Police Station</label>
-                                            <select class="form-select" name="police" id="floatingSelect">
+                                            <select class="form-select" name="police_station" id="floatingSelect">
                                                 {% for ps in all_police_station %}
                                                 <option value="{{ps.short_tag}}" data-name="">{{ps.tag}}</option>
                                                 {% endfor %}
@@ -38,15 +41,15 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Full Name</label>
-                                            <input type="text" name="role" class="form-control"
+                                            <input type="text" name="full_name" class="form-control"
                                                 value="{{ user_profile.Master.FullName}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Subjeect</label>
-                                            <input type="text" name="full_name" class="form-control"
-                                                value="{{ user_profile.Subjeect}}">
+                                            <input type="text" name="subject" class="form-control"
+                                                value="{{ user_profile.Subject}}">
                                         </div>
                                     </div>
 
@@ -68,7 +71,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input type="text" class="form-control" value="{{ user_profile.Address}}">
+                                            <input type="text" name="address" class="form-control" value="{{ user_profile.Address}}">
                                         </div>
                                     </div>
                                    
@@ -76,8 +79,8 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea name="about" class="form-control" id="about" style="height: 205px"
-                                                placeholder="About"></textarea>
+                                            <textarea name="discription" class="form-control" id="about" style="height: 205px"
+                                                placeholder="discription"></textarea>
                                             <label for="about" class="col-md-4 col-lg-3 col-form-label">Discription</label>
                                         </div>
                                     </div>

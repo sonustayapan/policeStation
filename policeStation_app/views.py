@@ -1,5 +1,7 @@
+import email
+from email.policy import default
 from django.shortcuts import render, redirect
-from .models import *
+from .models import * 
 import random
 from django.http import request
 from django.core.mail import send_mail
@@ -35,7 +37,6 @@ def console(err):
 
 
 # check internet connection
-
 
 
 def send_otp(request, otp_for='reg'):
@@ -78,9 +79,9 @@ def verify_otp(request, verify_for='reg'):
                 default_dict['msg_data']['msg'] = 'Congratulations!! Your password has successfully changed.'
             else:
                 master.IsActive = True
-                if master.Role.Role == 'Citizen':
+                if master.Role.Role == 'citizen':
                     Citizen.objects.create(Master=master)
-                elif master.Role.Role == 'Department':
+                elif master.Role.Role == 'department':
                     Department.objects.create(Master=master)
                
                 
@@ -214,181 +215,53 @@ def login(request):
         pass
 
 
-
 def profile_data(request):
+    master = Master.objects.get(Email = request.session['email'])
 
-    if 'email' in request.session:
-        try:
-            master =  Master.objects.get(Email=request.session['email'])
-            user_role = master.Role.Role
-
-            default_dict['user_role'] = user_role
-            # print(app_info['user_role'])
-            if user_role == 'citizen':
-                citizen = Citizen.objects.get(Master=master) 
-                default_dict['profile_data'] = citizen
-                
-                # print('products ', app_info['all_products'])
-
-            elif user_role == 'department':
-                department = Department.objects.get(Master=master)
-                default_dict['profile_data'] = department
-                
-                
-
-            if default_dict['profile_data'].Image.url.split('/')[-1] != 'default.png':
-                default_dict['has_profile_image'] = True
-            else:
-                default_dict['has_profile_image'] = False
-        except Exception as err:
-            print('Error in profile_data method @ line 189', err)
-
-def upload_profile_pic(request):
-    master = Master.objects.get(Email=request.session['email'])
-    user = ''
-    user_role = master.Role.Role
-
-    if user_role == 'citizen':
+    if master.Role.Role == 'citizen':
         user = Citizen.objects.get(Master=master)
-    elif user_role == 'department':
+    elif master.Role.Role == 'department':
         user = Department.objects.get(Master=master)
 
-    user_image_path = os.path.join(settings.MEDIA_ROOT, f'{user_role}\\')
-        
-    if 'user_image' in request.FILES:
-        user_image = request.FILES['user_image']
-        print('--------------------------------',user_image)
-        
-        # renaming the uploaded image according to user id
-        user_name = ''
+    default_dict['user_profile'] = user
 
-        if user.FullName:
-            user_name = '_'.join(user.FullName.split())
-        
-        user_image.name = f'{user_role}_{user_name.lower()}.{user_image.name.split(".")[-1]}'
+def profile_update(request):
+    user = default_dict['user_profile']
+    user_role = user.Master.Role.Role
 
-        print('image path: ', user.Image)
-        # print('user path from model ', str(user.Image).split('/')[1])
-        
-        if user.Image != 'default.png':
-            if str(user.Image).split('/')[1] not in os.listdir(user_image_path):
-                print('folder created')
-                os.mkdir(f'{user_image_path}\\{str(user.Image).split("/")[1]}')
-            else:
-                user_image_path = os.path.join(settings.MEDIA_ROOT, f'{user_image_path}\\{str(user.Image).split("/")[1]}\\')
+    fullname = request.POST['fullname']
+    country = request.POST['country']
+    gender = request.POST['gender']
+    state = request.POST['state']
+    mobile = request.POST['mobile']
+    city = request.POST['city']
+    address = request.POST['address']
+    pincode = request.POST['pincode']
 
-        for fname in os.listdir(user_image_path):
-            print('files: ', fname)
-            if fname == user_image.name:
-                f = os.path.join(user_image_path, user_image.name)
-                print(f)
-                os.remove(f)
-                print(f"file {f} is deleted successfully")
+    if user_role == 'citizen':
+        user = Citizen.objects.get(id = user.id)
+    elif user_role == 'department':
+        user = Department.objects.get(id = user.id)
 
+    user.FullName = fullname
+    user.Country = country
+    user.Gender = gender
+    user.State = state
+    user.Mobile = mobile
+    user.City = city
+    user.Address = address
+    user.Pincode = pincode
 
-        user.Image = user_image
     user.save()
+
     return redirect(profile_page)
 
 def profile_page(request):
     profile_data(request)
     default_dict['current_page'] = 'department_profile'
-    return render(request, 'department_profile.html', default_dict)
+    return render(request, 'app/profile.html', default_dict)
  
 
-
-# def citizen_profile(request):
-#     if request.user.is_authenticated:
-#         return render(request, 'citizen_profile_page.html')
-#     else:
-#         return redirect('/login_page/')
-
-# def citizen_profile_page(request):
-#     default_dict['current_page'] = 'citizen_profile'
-#     return render(request, 'citizen_profile_page.html', default_dict)
-
-
-# def profile_data(request):
-#     master = Master.objects.get(Email = request.session['email'])
-#     gender = []
-#     for k, v in gender_choice:
-#         gender.append(
-#             {'short_tag: k, "text: v'}
-#         )
-#     print(gender)
-#     if master.Role == "Department":
-#         user = Department.objects.get(Master=master)
-#     else:
-#         user = Citizen.objects.get(Master=master)
-        
-#     default_dict["gender_choise"] = gender
-#     default_dict["user_profile"] = user
-
-# def profile_page(request):
-#     user = default_dict['user_profile']
-#     user_role = user.Master.Role.Name
-
-#     full_name = request.post['full_name']
-#     father_name = request.post['father_name']
-#     mobile = request.post['mobile']
-#     email = request.post['email']
-#     dob = request.post['dob']
-#     gender = request.post['gender']
-#     address = request.post['address']
-#     country = request.post['country']
-#     state = request.post['state']
-#     city = request.post['city']
-#     police_station = request.post['police_station']
-#     pin_code = request.post['pin_code']
-#     house_no = request.post['house_no']
-#     description = request.post['description']
-
-#     if user_role == 'department':
-#             user = Department.objects.get(id=user.id)
-#     else:
-#         user = Citizen.objects.get(id=user.id) 
-    
-#     user.FullName = full_name
-#     user.Mobile = mobile
-#     user.DoB = dob
-#     user.Gender = gender
-
-#     # import os  
-#     # if 'profile_image' in request.FILES:
-#     #     prifile_image  = request.FILES['profile_image']
-
-#     #     file_type = profile_image.name.split('.') [1]
-#     #     new_file_name = f"{'_'.join(user.FullName.lower().split())}_{user.mobile}.{file_type}"
-#     #     profile_image.name = new_file_name
-
-#     #     for file in os.listdir(settings.MEDIA_ROOT + '/'+ 's/profile/'):
-#     #         print('file: ',file)
-
-#     #     if new_file_name in os.listdir(settings.MESIA_ROOT + '/' 's/profile/'):
-#     #         os.remove(settings.MEDIA_ROOT + '/' + user_role + 's/profile' + new_file_name )
-
-#     #     print('image name : ', prifile_image.name)
-#     #     user.ProfileImage = profile_image
-
-#     user.save()
-
-#     return redirect(profile_page)
-
-
-
-
-
-# def recover_pwd_page(request):
-#     default_dict["current_page"] = "recover_pwd_page"
-#     if request.POST:
-#         print("Forgot Passwad...")
-#     master = Master.objects.get(Email=request.POST["Email"])
-
-#     request.session['email'] = master.Email
-
-#     default_dict['current_page'] = "varify_otp"
-#     default_dict['varify_otp'] = "rec"
-#     return render(request,'recover_pwd_page.html', default_dict)  
 
 @csrf_exempt
 def complaint(request):
@@ -407,7 +280,6 @@ def complaint(request):
         discription = request.POST['description']
 
        
-
         Complaint.objects.create(
 
                     FullName=fullname,
@@ -427,65 +299,83 @@ def complaint(request):
 
     return render(request, 'complaint.html', default_dict)
 
+def complaint_view(request):
+    default_dict["current_page"] = "current_page"
+    complaint = Complaint.objects.all()
+    default_dict['complaint'] = complaint
+    return render(request, 'complaint_view.html', default_dict)
+
 
 def e_fir_page(request):
     default_dict["current_page"] = "e_fir_page"
 
-    if request.method == 'POST':
-    
-        fullName = request.POST['full_name']
-        criminalName = request.POST['father_name']
-        gender = request.POST['gender']
-        address = request.POST['address']
-        state = request.POST['state']
-        city = request.POST['city']
-        policeStation = request.POST['police_station']
-        pin_Code = request.POST['pin_code']
-        house_No = request.POST['house_no']
-        e_fir= request.POST['description']
+    try:
+        master = Master.objects.get(Email = request.session['email'])
+        if request.method == 'POST':
+        
+            fullname = request.POST['full_name']
+            criminalname = request.POST['criminal_name']
+            gender = request.POST['gender']
+            address = request.POST['address']
+            state = request.POST['state']
+            city = request.POST['city']
+            policestation = request.POST['police_station']
+            house_No = request.POST['house_no']
+            e_fir= request.POST['description']
 
-        complaint = Complaint.objects.create(
-            FullName=fullName,
-            CrinalName = criminalName,
-            Gender = gender,
-            Address = address,
-            State = state,
-            City = city,
-            PoliceStation = policeStation,
-            Pin_Code = pin_Code,
-            House_No = house_No,
-            E_fir = e_fir,
+            E_fir.objects.create(
+                Master = master,
+                FullName = fullname,
+                CriminalName = criminalname,
+                Gender = gender,
+                Address = address,
+                State = state,
+                City = city,
+                PoliceStation = policestation,
+                House_No = house_No,
+                E_fir = e_fir,
+                )
 
+        return render(request, 'e_fir_page.html', default_dict)
 
-        )
+    except Exception as e:
+        print(f"\n\n\n{e}\n\n\n")
+        return render(request, 'e_fir_page.html', default_dict)
 
-    return render(request, 'e_fir_page.html', default_dict)
+def fir_view(request):
+    default_dict["current_page"] = "fir_view"
+    e_fir = E_fir.objects.all()
+    default_dict['E_fir'] = e_fir
+    return render(request, 'fir_view.html', default_dict)
+
 
 def lost_parson(request):
     default_dict["current_page"] = "lost_parson"
 
+    master = Master.objects.get(Email = request.session['email'])
     if request.method == 'POST':
 
-        fullName = request.POST['full_name']
-        fatherName = request.POST['father_name']
+        fullname = request.POST['full_name']
+        fathername = request.POST['father_name']
         gender = request.POST['gender']
         address = request.POST['address']
         state = request.POST['state']
         city = request.POST['city']
-        policeStation = request.POST['police_station']
-        identification_mark = request.POST['identification_mar']
+        policestation = request.POST['police_station']
+        identification_mark = request.POST['identification_mark']
         identity_Card = request.POST['identity_card']
         date = request.POST['date']
         discription = request.POST['description']
 
-        complaint = Complaint.objects.create(
-            FullName=fullName,
-            FatherName = fatherName,
+        Lost_Parson.objects.create(
+            Master = master,
+            FullName=fullname,
+            FatherName = fathername,
             Gender = gender,
             Address = address,
             State = state,
             City = city,
-            PoliceStation = policeStation,
+            PoliceStation = policestation,
             Identification_Mark = identification_mark,
             Identity_Card = identity_Card,
             Date = date,
@@ -496,29 +386,33 @@ def lost_parson(request):
 
     return render(request, 'lost_parson.html', default_dict)
 
+def lost_parsons_view(request):
+    default_dict["current_page"] = "lost_parsons_view"
+    lost_parson = Lost_Parson.objects.all()
+    default_dict['Lost_parson'] = lost_parson
+    return render(request, 'lost_parsons_view.html', default_dict)
+
 def report(request):
     default_dict["current_page"] = "report"
+    master = Master.objects.get(Email = request.session['email'])
 
     if request.method == 'POST':
 
-        fullName = request.POST['full_name']
-        select_Category= request.POST['father_name']
-        subject = request.POST['city']
-        gender = request.POST['gender']
+        fullname = request.POST['full_name']
+        select_category= request.POST['select_category']
+        subject = request.POST['subject']
         address = request.POST['address']
-        country = request.POST['country']
-        policeStation = request.POST['police_station']
-        mobile = request.POST['house_no']
-        discription = request.POST['description']
+        policestation = request.POST['police_station']
+        mobile = request.POST['mobile']
+        discription = request.POST['discription']
 
-        complaint = Complaint.objects.create(
-            FullName=fullName,
-            Select_Category = select_Category,
-            Gender = gender,
+        Report.objects.create(
+            Master = master,
+            FullName=fullname,
+            Select_Category = select_category,
             Address = address,
-            Country = country,
             Subject = subject,
-            PoliceStation = policeStation,
+            PoliceStation = policestation,
             Mobile = mobile,
             Discription= discription,
 
@@ -527,64 +421,79 @@ def report(request):
 
     return render(request, 'report.html', default_dict)
 
+def report_view(request):
+    default_dict["current_page"] = "report_view"
+    report = Report.objects.all()
+    default_dict['Report'] = report
+    return render(request, 'report_view.html', default_dict)
+
 def police_varification(request):
     default_dict["current_page"] = "police_varification"
 
+    master = Master.objects.get(Email = request.session['email'])
+
     if request.method == 'POST':
 
-        fullName = request.POST['full_name']
-        fatherName = request.POST['father_name']
+        fullname = request.POST['full_name']
+        fathername = request.POST['father_name']
         gender = request.POST['gender']
         address = request.POST['address']
         city = request.POST['city']
-        policeStation = request.POST['police_station']
-        pin_Code = request.POST['pin_code']
-        house_No = request.POST['house_no']
-        discription = request.POST['description']
+        policestation = request.POST['police_station']
+        pin_code = request.POST['pin_code']
+        house_no = request.POST['house_no']
+        discription = request.POST['discription']
 
-        complaint = Complaint.objects.create(
-            FullName=fullName,
-            FatherName = fatherName,
+        Police_Varification.objects.create(
+            Master = master,
+            FullName=fullname,
+            FatherName = fathername,
             Gender = gender,
             Address = address,
             City = city,
-            PoliceStation = policeStation,
-            Pin_Code = pin_Code,
-            House_No = house_No,
-            Discription= discription,
+            PoliceStation = policestation,
+            Pin_Code = pin_code,
+            House_No = house_no,
+            Discription = discription,
 
         )
 
     return render(request, 'police_varification.html', default_dict)
 
+def police_verification_view(request):
+    default_dict["current_page"] = "police_verification_view"
+    police_varification = Police_Varification.objects.all()
+    default_dict['Police_Varification'] = police_varification
+    return render(request, 'police_verification_view.html', default_dict)
+
 def accident(request):
     default_dict["current_page"] = "accident"
+    master = Master.objects.get(Email = request.session['email'])
 
     if request.method == 'POST':
 
-        fullName = request.POST['full_name']
-        adhar_No = request.POST['father_name']
+        fullname = request.POST['full_name']
+        adhar_no = request.POST['adhar_no']
         gender = request.POST['gender']
         address = request.POST['address']
-        state = request.POST['state']
         city = request.POST['city']
-        policeStation = request.POST['police_station']
-        car_No = request.POST['pin_code']
-        age = request.POST['pin_code']
-        accident_Car = request.POST['house_no']
-        discription = request.POST['description']
+        policestation = request.POST['police_station']
+        car_no = request.POST['car_no']
+        age = request.POST['age']
+        accident_car = request.POST['accident_car']
+        discription = request.POST['discription']
 
-        complaint = Complaint.objects.create(
-            FullName=fullName,
-            Adhar_No = adhar_No,
+        Accident.objects.create(
+            Master = master,
+            FullName=fullname,
+            Adhar_No = adhar_no,
             Gender = gender,
             Address = address,
-            State = state,
             City = city,
-            PoliceStation = policeStation,
+            PoliceStation = policestation,
             Age = age,
-            Car_No = car_No,
-            Accident_Car = accident_Car,
+            Car_No = car_no,
+            Accident_Car = accident_car,
             Discription= discription,
 
 
@@ -592,41 +501,57 @@ def accident(request):
 
     return render(request, 'accident.html', default_dict)
 
+def accident_view(request):
+    default_dict["current_page"] = "accident_view"
+    accident = Accident.objects.all()
+    default_dict['Accident'] = accident
+    return render(request, 'accident_view.html', default_dict)
+
 def passport_status(request):
     default_dict["current_page"] = "passport_status"
+    master = Master.objects.get(Email = request.session['email'])
 
     if request.method == 'POST':
     
-        fullName = request.POST['full_name']
-        dob = request.POST['father_name']
+        fullname = request.POST['full_name']
+        dob = request.POST['date_of_birth']
         city = request.POST['city']
-        elect_Appliction_Type = request.POST['description']
+        select_appliction_type = request.POST['select_appliction_type']
 
-        complaint = Complaint.objects.create(
-            FullName=fullName,
+        Passport_Status.objects.create(
+            Master = master,
+            FullName = fullname,
             Dob = dob,
             City = city,
-            elect_Appliction_Type = elect_Appliction_Type,
+            Select_Appliction_Type = select_appliction_type,
 
 
         )
 
     return render(request, 'passport_status.html', default_dict)
 
+def passport_status_view(request):
+    default_dict["current_page"] = "passport_status_view"
+    passport_status = Passport_Status.objects.all()
+    default_dict['Passport_Status'] = passport_status
+    return render(request, 'passport_status_view.html', default_dict) 
+
 def go_message(request):
     default_dict["current_page"] = "go_message"
+    master = Master.objects.get(Email = request.session['email'])
 
     if request.method == 'POST':
 
-        fullName = request.POST['full_name']
-        subject  = request.POST['father_name']
+        fullname = request.POST['full_name']
+        subject  = request.POST['subject']
         address = request.POST['address']
         state = request.POST['state']
         city = request.POST['city']
-        messege = request.POST['description']
+        messege = request.POST['messege']
 
-        complaint = Complaint.objects.create(
-            FullName=fullName,
+        Go_messege.objects.create(
+            Master = master,
+            FullName = fullname,
             Subject  = subject ,
             Address = address,
             State = state,
@@ -651,14 +576,17 @@ default_dict['all_police_station'] = []
 for police_station in station_choices:
     default_dict['all_police_station'].append({'short_tag': police_station[0], 'tag': police_station[0]})
 
+def citizen_connect(request):
+    default_dict["current_page"] = "citizen_connect"
+    return render(request,'app/citizen_connect.html', default_dict)  
 
-def make_complaint(request):
-    default_dict["current_page"] = "make_complaint"
-    return render(request, 'make_complaint.html', default_dict)
+def citizen_profile(request):
+    default_dict["current_page"] = "citizen_profile"
+    return render(request,'app/citizen_profile.html', default_dict)  
 
-def e_fir_view(request):
-    default_dict["current_page"] = "current_page"
-    return render(request, 'e_fir_view.html', default_dict)
+def department_profile(request):
+    default_dict["current_page"] = "department_profile"
+    return render(request,'app/department_profile.html', default_dict)  
 
 def officer_list(request):
     default_dict["current_page"] = "officer_list"

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for i in complaint %}
+<section class="contact-form" style="width: 1000px; margin: auto;">
+    <div class="content">
+        <h1 style="text-align:center">Complaint {{i.id}}</h1>
+    
+        <div class="container-fluid">
+    
+    <table class="table table-striped">
+       
+        <tbody>
+          <tr>
+             <td>Name :-</td>
+             <td>{{i.FullName}}</td>
+          </tr>
+          <tr>
+            <td>Gender :-</td>
+            <td>{{i.Gender}}</td>
+          </tr>
+          <tr>
+            <td>Father Name :-</td>
+            <td>{{i.FatherName}}</td>
+          </tr>
+          <tr>
+            <td>Address :-</td>
+            <td>{{i.Address}}</td>
+          </tr>
+          <tr>
+            <td>Country :-</td>
+            <td>{{i.Country}}</td>
+          </tr>
+          <tr>
+            <td>State :-</td>
+            <td>{{i.State}}</td>
+          </tr>
+          <tr>
+            <td>City :-</td>
+            <td>{{i.City}}</td>
+          </tr>
+          <tr>
+            <td>Police Station :-</td>
+            <td>{{i.Police_Station}}</td>
+          </tr>
+          <tr>
+            <td>Pin Code :-</td>
+            <td>{{i.Pin_Code}}</td>
+          </tr>
+          <tr>
+            <td>House No :-</td>
+            <td>{{i.House_No}}</td>
+          </tr>
+          <tr>
+            <td>Complaint :-</td>
+            <td>{{i.Description}}</td>
+          </tr>
+         
+        </tbody>
+        
+      </table>
+    </div>
+    </div>
+  </section>
+  {% endfor %}
+
+{% endblock %}
